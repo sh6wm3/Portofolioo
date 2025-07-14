@@ -2,151 +2,169 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Andra Marshal | Portofolio</title>  <!-- Font Montserrat -->  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"/>  <!-- Font Awesome (ikon UI) -->  <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>  <!-- Suara bintang-klik --><audio id="click-sound"
-src="https://cdn.pixabay.com/audio/2022/03/15/audio_841b95f7b6.mp3"></audio>
-
+  <title>Marshal Portofolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <style>
-    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-    :root{scroll-behavior:smooth}
-    body{font-family:'Montserrat',sans-serif;background:#0e0e0e;color:#fff}
-
-    header{
-      background:#0e0e0e;border-bottom:1px solid #222;padding:18px 32px;
-      position:sticky;top:0;z-index:1000;display:flex;align-items:center;justify-content:space-between}
-    header h1{color:#ff0055;font-size:1.5rem;letter-spacing:.5px}
-    .nav-links a{color:#fff;text-decoration:none;margin-left:24px;transition:.3s}
-    .nav-links a:hover{color:#ff0055}
-
-    .burger{display:none;font-size:1.8rem;color:#ff0055;background:none;border:none;cursor:pointer}
-    .side-menu{
-      position:fixed;top:0;right:-260px;width:260px;height:100vh;background:#0e0e0e;
-      box-shadow:-4px 0 10px rgba(0,0,0,.5);transition:.35s;padding:80px 24px;z-index:999}
-    .side-menu a{display:block;margin:16px 0;color:#fff;font-weight:600;text-decoration:none}
-    .side-menu.open{right:0}
-    .overlay{
-      position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(2px);
-      opacity:0;pointer-events:none;transition:.35s;z-index:998}
-    .overlay.show{opacity:1;pointer-events:all}
-
-    .section{padding:80px 40px;max-width:1100px;margin-inline:auto}
-    .btn{display:inline-block;padding:12px 28px;background:#ff0055;border-radius:8px;
-      color:#fff;text-decoration:none;font-weight:700;margin-top:28px;transition:.25s}
-    .btn:hover{background:#ff3366}
-
-    .hero{
-      display:flex;flex-direction:column;align-items:center;text-align:center;
-      gap:32px;min-height:65vh;justify-content:center}
-    .hero h2{font-size:3rem;color:#ff0055;margin-bottom:10px}
-    .typing-text{font-size:1.1rem;line-height:1.8;min-height:130px;white-space:pre-wrap}
-
-    .skills ul{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px}
-    .skill-item{
-      background:#1c1c1c;padding:14px 16px;border-left:4px solid #ff0055;
-      display:flex;align-items:center;gap:10px;border-radius:6px}
-    .skill-item img{width:28px;height:28px}
-
-    .project-card{
-      background:#1c1c1c;padding:20px;border-radius:10px;margin:12px 0;
-      border-left:4px solid #ff0055}
-    .project-card img{width:100%;border-radius:8px;margin-top:10px}
-
-    .click-star{
-      position:fixed;font-size:24px;color:#ff0055;pointer-events:none;
-      animation:explode 1s ease-out forwards;z-index:9999}
-    @keyframes explode{from{opacity:1;transform:scale(1) translateY(0)}
-                       to{opacity:0;transform:scale(2) translateY(-50px)}}
-
-    @media(max-width:768px){.burger{display:block}.nav-links{display:none}}
-  </style></head>
-<body>  <div class="overlay" id="overlay"></div>
-  <nav class="side-menu" id="side-menu">
-    <a href="#beranda">Beranda</a>
-    <a href="#about">Tentang</a>
-    <a href="#skills">Skill</a>
-    <a href="#projek-web">Projek</a>
-    <a href="cv.html">CV</a>
-    <a href="contact.html">Kontak</a>
-    <a href="open-jasa.html">Jasa Dev</a>
-    <a href="hosting.html">Hosting</a>
-  </nav>  <header>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+      color: #fff;
+      line-height: 1.6;
+    }
+    header {
+      background: #1b1b2f;
+      padding: 20px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    header h1 {
+      color: #ff4ecd;
+      font-size: 1.8rem;
+    }
+    nav a {
+      color: #fff;
+      margin-left: 16px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      color: #ff4ecd;
+    }
+    .hero {
+      padding: 100px 32px;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.3);
+    }
+    .hero h2 {
+      font-size: 3rem;
+      margin-bottom: 16px;
+      color: #ff4ecd;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: auto;
+    }
+    .section {
+      max-width: 960px;
+      margin: auto;
+      padding: 80px 32px;
+    }
+    h2.section-title {
+      font-size: 2.2rem;
+      color: #ff4ecd;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .service-card, .testimonial-card {
+      background: #1f1f3d;
+      padding: 20px;
+      margin-bottom: 24px;
+      border-left: 4px solid #ff4ecd;
+      border-radius: 8px;
+    }
+    .service-card h3, .testimonial-card p {
+      margin: 0 0 10px;
+    }
+    .btn {
+      display: inline-block;
+      background: #ff4ecd;
+      padding: 12px 24px;
+      border-radius: 6px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .btn:hover {
+      background: #ff82d1;
+    }
+    .testimonial-card span {
+      color: #ff4ecd;
+      font-weight: bold;
+    }
+    .contacts {
+      text-align: center;
+      margin-top: 60px;
+    }
+    .contacts a {
+      color: #fff;
+      margin: 0 16px;
+      font-size: 1.8rem;
+      transition: 0.3s;
+    }
+    .contacts a:hover {
+      color: #ff4ecd;
+    }
+    footer {
+      padding: 20px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #ccc;
+      background: #1b1b2f;
+    }
+  </style>
+</head>
+<body>
+  <header>
     <h1>Marshal</h1>
-    <div class="nav-links">
-      <a href="#beranda">Beranda</a>
-      <a href="#about">Tentang</a>
-      <a href="#skills">Skill</a>
-      <a href="#projek-web">Projek</a>
+    <nav>
+      <a href="index.html">Home</a>
       <a href="cv.html">CV</a>
+      <a href="projects.html">Projek</a>
+      <a href="services.html">Layanan</a>
       <a href="contact.html">Kontak</a>
-      <a href="open-jasa.html">Jasa Dev</a>
-      <a href="hosting.html">Hosting</a>
+    </nav>
+  </header>
+  <section class="hero">
+    <h2>Halo, Gua Marshal</h2>
+    <p>Developer forum SA-MP, pembuat portofolio kreatif, dan penyedia layanan hosting bot/server handal.</p>
+  </section>
+  <section class="section">
+    <h2 class="section-title">Tentang Gua</h2>
+    <p>Gua adalah seorang web developer yang berfokus pada pembuatan website custom, forum SA-MP, serta solusi hosting untuk komunitas gaming. Gua percaya bahwa desain elegan dan performa maksimal adalah kunci kepuasan klien. Gua juga selalu terbuka buat diskusi dan kolaborasi. Yuk bikin project bareng!</p>
+  </section>
+  <section class="section">
+    <h2 class="section-title">Layanan Unggulan</h2>
+    <div class="service-card">
+      <h3><i class="fas fa-code"></i> Pembuatan Website</h3>
+      <p>Desain web portofolio, bisnis, dan forum SA-MP modern dan mobile-friendly.</p>
     </div>
-    <button class="burger" id="burger"><i class="fas fa-bars"></i></button>
-  </header>  <section id="beranda" class="section hero">
-    <div class="hero-text">
-      <h2>Halo, Saya Andra!</h2>
-      <p class="typing-text"></p>
-      <a href="cv.html" class="btn">Lihat CV Saya</a>
+    <div class="service-card">
+      <h3><i class="fas fa-server"></i> Hosting SA-MP</h3>
+      <p>Server cepat, uptime tinggi, cocok buat project gaming dan bot Telegram/Discord.</p>
     </div>
-  </section>  <section id="about" class="section about">
-    <h2>Tentang Saya</h2>
-    <p>Saya adalah developer bervisi besar: membangun ekosistem web & server-side
-       yang andal, serta menciptakan pengalaman gameplay lewat scripting dan
-       gamemode GTA San Andreas Multiplayer (SA-MP). Setiap baris kode adalah langkah
-       strategis menuju inovasi berikutnya—ditulis dengan disiplin, kreativitas
-       dan rasa ingin tahu tanpa batas.</p>
-  </section>  <section id="skills" class="section skills">
-    <h2>Skill Coding</h2>
-    <ul>
-      <li class="skill-item">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML">
-        HTML & Semantic
-      </li>
-      <li class="skill-item">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS">
-        CSS / Flexbox / Grid
-      </li>
-      <li class="skill-item">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JS">
-        JavaScript & DOM
-      </li>
-      <li class="skill-item">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub">
-        GitHub Pages / Netlify
-      </li>
-    </ul>
-  </section>  <section id="projek-web" class="section knowledge">
-    <h2>Projek Website & Forum</h2>
-    <div class="project-card">
-      <strong>💻 Forum Luminar RP</strong><br>
-      Tampilan awal forum SA-MP bertema gelap, UCP, info admin & rules aesthetic.<br><br>
-      <img src="https://raw.githubusercontent.com/sh6wm3/Marshalweb/main/file_00000000901061f7b28958c7bd95b3d7.png"
-           alt="Forum Luminar RP"><br>
-      <span style="color:#ccc;font-size:0.9rem">*Screenshot forum Luminar RP</span>
+    <div class="service-card">
+      <h3><i class="fas fa-robot"></i> Bot Otomatis</h3>
+      <p>Bot Discord & Telegram custom buat komunitas kamu. Praktis dan keren!</p>
     </div>
-  </section>  <section class="section contact">
-    <h2>Kontak Saya</h2>
-    <p>Ingin berkolaborasi? Klik tombol di bawah untuk halaman kontak.</p>
-    <a href="contact.html" class="btn"><i class="fas fa-paper-plane" style="margin-right:8px"></i>Hubungi Saya</a>
-  </section>  <script>
-    const text = "Seorang Barista yang terlatih dalam kesabaran, konsistensi dan cita rasa, kini menjelma menjadi Developer yang berfokus pada efisiensi, kreativitas dan teknologi.\n\nSaya aktif membangun sistem interaktif, serta gamemode & scripting GTA San Andreas Multiplayer (SA-MP).\n\nKeahlian bukan hanya apa yang kita tahu, tetapi bagaimana kita terus berkembang.";
-    let i = 0;
-    function type(){ if(i<text.length){document.querySelector('.typing-text').textContent += text.charAt(i++);setTimeout(type,20);} }
-    window.addEventListener('load',type);
-
-    document.addEventListener('click',e=>{
-      const star=document.createElement('div');
-      star.className='click-star';star.textContent='★';
-      star.style.left=`${e.pageX}px`;star.style.top=`${e.pageY}px`;
-      document.body.appendChild(star);
-      document.getElementById('click-sound').play();
-      setTimeout(()=>star.remove(),1000);
-    });
-
-    const burger=document.getElementById('burger');
-    const side=document.getElementById('side-menu');
-    const over=document.getElementById('overlay');
-    burger.addEventListener('click',()=>{side.classList.add('open');over.classList.add('show');});
-    over.addEventListener('click',()=>{side.classList.remove('open');over.classList.remove('show');});
-  </script></body>
+  </section>
+  <section class="section">
+    <h2 class="section-title">Testimoni</h2>
+    <div class="testimonial-card">
+      <p>"Marshal bantu setup forum SA-MP gua dari nol sampai jadi. Hasilnya keren banget dan support-nya cepet!"</p>
+      <span>— Owner Luminar RP</span>
+    </div>
+    <div class="testimonial-card">
+      <p>"Hosting bot Telegram gua stabil banget. Bahkan pas dipake bareng ratusan user!"</p>
+      <span>— Pengguna Hosting</span>
+    </div>
+  </section>
+  <section class="contacts">
+    <h2 class="section-title">Hubungi Gua</h2>
+    <a href="mailto:your.email@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+    <a href="https://discord.com/users/782991810858975243" title="Discord"><i class="fab fa-discord"></i></a>
+    <a href="https://wa.me/628123456789" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://github.com/sh6wm3" title="GitHub"><i class="fab fa-github"></i></a>
+  </section>
+  <footer>
+    © 2025 Marshal • Dibuat dengan semangat anime dan coding :)
+  </footer>
+</body>
 </html>
