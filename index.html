@@ -9,162 +9,124 @@
     body {
       margin: 0;
       font-family: 'Montserrat', sans-serif;
-      background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+      background: #0e0e0e;
       color: #fff;
-      line-height: 1.6;
+      scroll-behavior: smooth;
     }
     header {
-      background: #1b1b2f;
+      background: #0e0e0e;
       padding: 20px 32px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      border-bottom: 1px solid #222;
       position: sticky;
       top: 0;
       z-index: 1000;
     }
     header h1 {
-      color: #ff4ecd;
+      color: #ff6ec7;
       font-size: 1.8rem;
     }
-    nav a {
-      color: #fff;
-      margin-left: 16px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    nav a:hover {
-      color: #ff4ecd;
-    }
-    .hero {
-      padding: 100px 32px;
-      text-align: center;
-      background: rgba(0, 0, 0, 0.3);
-    }
-    .hero h2 {
-      font-size: 3rem;
-      margin-bottom: 16px;
-      color: #ff4ecd;
-    }
-    .hero p {
-      font-size: 1.2rem;
-      max-width: 600px;
-      margin: auto;
-    }
-    .section {
+    section {
       max-width: 960px;
       margin: auto;
       padding: 80px 32px;
     }
-    h2.section-title {
+    h2 {
       font-size: 2.2rem;
-      color: #ff4ecd;
-      text-align: center;
-      margin-bottom: 40px;
-    }
-    .service-card, .testimonial-card {
-      background: #1f1f3d;
-      padding: 20px;
       margin-bottom: 24px;
-      border-left: 4px solid #ff4ecd;
-      border-radius: 8px;
+      color: #ff6ec7;
     }
-    .service-card h3, .testimonial-card p {
-      margin: 0 0 10px;
+    .skill {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
     }
-    .btn {
-      display: inline-block;
-      background: #ff4ecd;
-      padding: 12px 24px;
-      border-radius: 6px;
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-    .btn:hover {
-      background: #ff82d1;
-    }
-    .testimonial-card span {
-      color: #ff4ecd;
-      font-weight: bold;
-    }
-    .contacts {
-      text-align: center;
-      margin-top: 60px;
-    }
-    .contacts a {
-      color: #fff;
-      margin: 0 16px;
-      font-size: 1.8rem;
-      transition: 0.3s;
-    }
-    .contacts a:hover {
-      color: #ff4ecd;
-    }
-    footer {
+    .skill-card {
+      background: #1e1e2f;
       padding: 20px;
+      border-radius: 10px;
       text-align: center;
-      font-size: 0.9rem;
-      color: #ccc;
-      background: #1b1b2f;
+      transition: 0.3s;
+    }
+    .skill-card:hover {
+      background: #2c2c44;
+    }
+    .skill-card i {
+      font-size: 2rem;
+      color: #ff6ec7;
+      margin-bottom: 10px;
+    }
+    .progress {
+      background: #333;
+      height: 8px;
+      border-radius: 5px;
+      margin-top: 8px;
+      overflow: hidden;
+    }
+    .progress-bar {
+      height: 100%;
+      background: #ff6ec7;
+      width: 0;
+      transition: width 1s ease-in-out;
+    }
+    .forum-img {
+      margin-top: 40px;
+      text-align: center;
+    }
+    .forum-img img {
+      width: 100%;
+      max-width: 720px;
+      border-radius: 12px;
+      border: 3px solid #ff6ec7;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Marshal</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="cv.html">CV</a>
-      <a href="projects.html">Projek</a>
-      <a href="services.html">Layanan</a>
-      <a href="contact.html">Kontak</a>
-    </nav>
-  </header>
-  <section class="hero">
-    <h2>Halo, Gua Marshal</h2>
-    <p>Developer forum SA-MP, pembuat portofolio kreatif, dan penyedia layanan hosting bot/server handal.</p>
-  </section>
-  <section class="section">
-    <h2 class="section-title">Tentang Gua</h2>
-    <p>Gua adalah seorang web developer yang berfokus pada pembuatan website custom, forum SA-MP, serta solusi hosting untuk komunitas gaming. Gua percaya bahwa desain elegan dan performa maksimal adalah kunci kepuasan klien. Gua juga selalu terbuka buat diskusi dan kolaborasi. Yuk bikin project bareng!</p>
-  </section>
-  <section class="section">
-    <h2 class="section-title">Layanan Unggulan</h2>
-    <div class="service-card">
-      <h3><i class="fas fa-code"></i> Pembuatan Website</h3>
-      <p>Desain web portofolio, bisnis, dan forum SA-MP modern dan mobile-friendly.</p>
-    </div>
-    <div class="service-card">
-      <h3><i class="fas fa-server"></i> Hosting SA-MP</h3>
-      <p>Server cepat, uptime tinggi, cocok buat project gaming dan bot Telegram/Discord.</p>
-    </div>
-    <div class="service-card">
-      <h3><i class="fas fa-robot"></i> Bot Otomatis</h3>
-      <p>Bot Discord & Telegram custom buat komunitas kamu. Praktis dan keren!</p>
-    </div>
-  </section>
-  <section class="section">
-    <h2 class="section-title">Testimoni</h2>
-    <div class="testimonial-card">
-      <p>"Marshal bantu setup forum SA-MP gua dari nol sampai jadi. Hasilnya keren banget dan support-nya cepet!"</p>
-      <span>— Owner Luminar RP</span>
-    </div>
-    <div class="testimonial-card">
-      <p>"Hosting bot Telegram gua stabil banget. Bahkan pas dipake bareng ratusan user!"</p>
-      <span>— Pengguna Hosting</span>
-    </div>
-  </section>
-  <section class="contacts">
-    <h2 class="section-title">Hubungi Gua</h2>
-    <a href="mailto:your.email@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
-    <a href="https://discord.com/users/782991810858975243" title="Discord"><i class="fab fa-discord"></i></a>
-    <a href="https://wa.me/628123456789" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-    <a href="https://github.com/sh6wm3" title="GitHub"><i class="fab fa-github"></i></a>
-  </section>
-  <footer>
-    © 2025 Marshal • Dibuat dengan semangat anime dan coding :)
-  </footer>
-</body>
+    <h1>Halo Gua Marshal</h1>
+  </header>  <section>
+    <h2>Skill Saya</h2>
+    <div class="skill">
+      <div class="skill-card">
+        <i class="fab fa-html5"></i>
+        <p>HTML</p>
+        <div class="progress"><div class="progress-bar" style="width: 90%"></div></div>
+      </div>
+      <div class="skill-card">
+        <i class="fab fa-css3-alt"></i>
+        <p>CSS</p>
+        <div class="progress"><div class="progress-bar" style="width: 85%"></div></div>
+      </div>
+      <div class="skill-card">
+        <i class="fab fa-js"></i>
+        <p>JavaScript</p>
+        <div class="progress"><div class="progress-bar" style="width: 70%"></div></div>
+      </div>
+      <div class="skill-card">
+        <i class="fas fa-database"></i>
+        <p>MySQL</p>
+        <div class="progress"><div class="progress-bar" style="width: 60%"></div></div>
+      </div>
+      <div class="skill-card">
+        <i class="fas fa-code"></i>
+        <p>PHP / Forum Dev</p>
+        <div class="progress"><div class="progress-bar" style="width: 75%"></div></div>
+      </div>
+    </div><div class="forum-img">
+  <h2>Forum Showcase (SA-MP)</h2>
+  <img src="https://raw.githubusercontent.com/sh6wm3/Portofolio/main/064be2670223134aa3141494f34280bb.jpg" alt="Forum SA-MP Marshal">
+</div>
+
+  </section>  <script>
+    // Animate progress bar
+    window.addEventListener('load', () => {
+      const bars = document.querySelectorAll('.progress-bar');
+      bars.forEach(bar => {
+        const width = bar.style.width;
+        bar.style.width = '0';
+        setTimeout(() => {
+          bar.style.width = width;
+        }, 300);
+      });
+    });
+  </script></body>
 </html>
