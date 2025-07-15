@@ -1,65 +1,87 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Daftar Akun</title>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <style>
     body {
-      background-color: #0d111d;
+      margin: 0;
       font-family: 'Segoe UI', sans-serif;
+      background: #0d111d;
       color: #fff;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
       height: 100vh;
-      margin: 0;
     }
-    h1 {
-      margin-bottom: 20px;
+    .register-box {
+      background: #1c1c1c;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #a88add50;
+      max-width: 360px;
+      width: 100%;
+    }
+    h2 {
+      text-align: center;
       color: #a88add;
-    }
-    input, button {
-      padding: 12px;
-      margin: 8px;
-      width: 260px;
-      border: none;
-      border-radius: 6px;
-      font-size: 1rem;
+      margin-bottom: 28px;
     }
     input {
-      background-color: #1c1c1c;
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 6px;
+      background: #2a2a2a;
       color: #fff;
     }
     button {
-      background-color: #a88add;
+      width: 100%;
+      padding: 12px;
+      background: #a88add;
+      border: none;
       color: #fff;
       font-weight: bold;
+      border-radius: 6px;
       cursor: pointer;
-      transition: background-color 0.3s;
+      margin-top: 16px;
     }
     button:hover {
-      background-color: #7e6bc4;
+      background: #7e6bc4;
+    }
+    .note {
+      text-align: center;
+      margin-top: 16px;
+      font-size: 14px;
+    }
+    .note a {
+      color: #a88add;
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
-  <h1>Daftar Akun</h1>
-  <input type="email" id="email" placeholder="Email" />
-  <input type="password" id="password" placeholder="Password" />
-  <button onclick="register()">Daftar</button>
+  <div class="register-box">
+    <h2>Daftar Akun</h2>
+    <input type="email" id="email" placeholder="Email" required>
+    <input type="password" id="password" placeholder="Password" required>
+    <button onclick="register()">Daftar</button>
+    <div class="note">Sudah punya akun? <a href="login.html">Login di sini</a></div>
+  </div>
 
+  <!-- Library Supabase -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
     const supabase = supabase.createClient(
-      'https://egawvajdbuxobbatzigt.supabase.co',
-      'fwwmncptsctxxxkipqtm'
+      'https://egawvajdbuxobbatzigt.supabase.co', // ← URL project kamu
+      'fwwmncptsctxxxkipqtm' // ← anon public key kamu
     );
 
     async function register() {
-      const email = document.getElementById("email").value;
-      const password = document.getElementById("password").value;
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
 
       const { data, error } = await supabase.auth.signUp({
         email,
@@ -67,10 +89,10 @@
       });
 
       if (error) {
-        alert("Gagal daftar: " + error.message);
+        alert('Gagal daftar: ' + error.message);
       } else {
-        alert("Akun berhasil dibuat! Silakan login.");
-        window.location.href = "login.html";
+        alert('Registrasi berhasil! Silakan login.');
+        window.location.href = 'login.html';
       }
     }
   </script>
