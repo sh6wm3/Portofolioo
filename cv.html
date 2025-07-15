@@ -2,146 +2,151 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CV Andra Marshal</title>
-  <link rel="stylesheet" href="style.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <!-- FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- ICON -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
   <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      background-color: #0a0a0a;
-      color: white;
-      transition: background 0.3s, color 0.3s;
+    :root{
+      --navy:#0d1628;
+      --navy-light:#182336;
+      --accent:#4e71ff;
+      --text:#ffffff;
     }
-    header {
-      padding: 1rem 2rem;
-      background: #111;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{
+      font-family:'Montserrat',sans-serif;
+      background:var(--navy);
+      color:var(--text);
+      line-height:1.6;
     }
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 600;
+
+    /* ===== HEADER ===== */
+    header{
+      background:var(--navy-light);
+      padding:18px 32px;
+      border-bottom:1px solid #202a3d;
+      display:flex;align-items:center;justify-content:space-between;
+      position:sticky;top:0;z-index:1000;
     }
-    nav a:hover {
-      color: #ff0057;
+    header h1{font-size:1.6rem;font-weight:700;color:var(--accent)}
+
+    /* ===== CONTAINER ===== */
+    .container{max-width:960px;margin:auto;padding:64px 32px}
+
+    /* FOTO PROFIL */
+    .profile-img{
+      width:160px;height:160px;border-radius:50%;
+      object-fit:cover;object-position:center;
+      border:5px solid var(--accent);
+      display:block;margin:0 auto 24px;
     }
-    .container {
-      padding: 2rem;
-      max-width: 1000px;
-      margin: auto;
+
+    /* JUDUL */
+    .center{text-align:center}
+    h2{font-size:2rem;margin-bottom:8px}
+    h3{font-size:1.4rem;margin:32px 0 16px;color:var(--accent)}
+
+    /* JOB CARD */
+    .job-card{
+      background:var(--navy-light);
+      border-left:5px solid var(--accent);
+      padding:16px;margin-bottom:14px;
+      border-radius:6px
     }
-    .profile-img {
-      width: 150px;
-      border-radius: 50%;
-      margin-bottom: 1rem;
-      border: 3px solid #ff0057;
+
+    /* PROGRESS BAR */
+    .skill-block{
+      margin:12px 0;
     }
-    .job-card {
-      background: #1a1a1a;
-      padding: 1rem;
-      margin-bottom: 1rem;
-      border-left: 5px solid #ff0057;
-      transition: transform 0.2s, box-shadow 0.2s;
-      cursor: pointer;
+    .skill-label{
+      display:flex;justify-content:space-between;
+      font-weight:600;margin-bottom:6px
     }
-    .job-card:hover {
-      transform: scale(1.02);
-      box-shadow: 0 0 10px #ff0057;
+    .progress{
+      width:100%;height:16px;border-radius:10px;
+      background:#25324a;overflow:hidden
     }
-    .progress {
-      background: #333;
-      border-radius: 20px;
-      overflow: hidden;
-      margin: 10px 0;
+    .progress-bar{
+      height:100%;width:0;
+      background:var(--accent);
+      border-radius:10px;
+      animation:fill 2s forwards;
     }
-    .progress-bar {
-      height: 20px;
-      background: #ff0057;
-      width: 0;
-      animation: fill 2s forwards;
+    @keyframes fill{
+      to{width:var(--w)}
     }
-    @keyframes fill {
-      to { width: 100%; }
+
+    /* BACK BUTTON */
+    .back-btn{
+      margin-top:48px;display:inline-block;
+      padding:12px 26px;border:2px solid var(--accent);
+      border-radius:8px;color:var(--accent);
+      text-decoration:none;font-weight:700;transition:0.25s;
     }
-    .dark-mode {
-      background: #fff;
-      color: #111;
-    }
-    .dark-mode .job-card {
-      background: #eee;
-      color: #111;
-    }
-    .toggle-btn {
-      cursor: pointer;
-      font-size: 1.2rem;
-      color: #ff0057;
-      background: none;
-      border: none;
-    }
+    .back-btn:hover{background:var(--accent);color:#fff}
   </style>
 </head>
 <body>
+
+  <!-- ===== HEADER ===== -->
   <header>
-    <h2>CV Andra</h2>
-    <div>
-      <a href="index.html">⬅️ Kembali ke Beranda</a>
-      <button class="toggle-btn" onclick="toggleDarkMode()">🌓</button>
-    </div>
+    <h1>CV Andra</h1>
+    <a href="index.html" class="back-btn" style="border:none;padding:0;color:var(--text);">Kembali ke Beranda</a>
   </header>
 
+  <!-- ===== MAIN ===== -->
   <div class="container">
-    <center>
-      <img src="https://raw.githubusercontent.com/sh6wm3/Marshalweb/main/1746982985194.jpg" alt="Foto Andra" class="profile-img">
+
+    <!-- FOTO & NAMA -->
+    <img src="https://i.postimg.cc/CBZxxf8Y/foto-cv.jpg" alt="Foto Andra" class="profile-img">
+    <div class="center">
       <h2>Andra Lutfiansyah Marshal</h2>
       <p>Head Barista | Kopi Enthusiast</p>
-    </center>
+    </div>
 
+    <!-- PENGALAMAN -->
     <h3>Pengalaman Kerja</h3>
-    <div class="job-card" onclick="alert('Yukscoffe: 6 Bulan sebagai Barista')">
-      <strong>Yukscoffe</strong> - 6 Bulan (Barista)
-    </div>
-    <div class="job-card" onclick="alert('Jack Coffe: 1 Tahun sebagai Barista')">
-      <strong>Jack Coffe</strong> - 1 Tahun (Barista)
-    </div>
-    <div class="job-card" onclick="alert('Kopisoe: 1 Tahun sebagai Head Barista')">
-      <strong>Kopisoe</strong> - 1 Tahun (Head Barista)
-    </div>
-    <div class="job-card" onclick="alert('Giardino Cafe: 1.3 Tahun sebagai Barista')">
-      <strong>Giardino Cafe</strong> - 1,3 Tahun (Barista)
-    </div>
-    <div class="job-card" onclick="alert('Varuna Cafe: 8 Bulan sebagai Barista')">
-      <strong>Varuna Cafe</strong> - 8 Bulan (Barista)
-    </div>
-    <div class="job-card" onclick="alert('Black Beans Cafe: 1 Tahun sebagai Head Barista')">
-      <strong>Black Beans Cafe</strong> - 1 Tahun (Head Barista)
+
+    <div class="job-card"><strong>Yukscoffe</strong> – 6 Bulan (Barista)</div>
+    <div class="job-card"><strong>Jack Coffe</strong> – 1 Tahun (Barista)</div>
+    <div class="job-card"><strong>Kopisoe</strong> – 1 Tahun (Head Barista)</div>
+    <div class="job-card"><strong>Giardino Cafe</strong> – 1,3 Tahun (Barista)</div>
+    <div class="job-card"><strong>Varuna Cafe</strong> – 8 Bulan (Barista)</div>
+    <div class="job-card"><strong>Black Beans Cafe</strong> – 1 Tahun (Head Barista)</div>
+
+    <!-- SKILL -->
+    <h3>Skill Barista</h3>
+
+    <div class="skill-block">
+      <div class="skill-label">Latte Art <span>80%</span></div>
+      <div class="progress"><div class="progress-bar" style="--w:80%"></div></div>
     </div>
 
-    <h3>Skill</h3>
-    <p>Latte Art</p>
-    <div class="progress"><div class="progress-bar" style="width: 90%"></div></div>
-    <p>Manual Brewing</p>
-    <div class="progress"><div class="progress-bar" style="width: 85%"></div></div>
-    <p>Team Leadership</p>
-    <div class="progress"><div class="progress-bar" style="width: 80%"></div></div>
+    <div class="skill-block">
+      <div class="skill-label">Manual Brewing <span>70%</span></div>
+      <div class="progress"><div class="progress-bar" style="--w:70%"></div></div>
+    </div>
 
-    <h3>Tentang Dunia Kopi</h3>
-    <p>Saya mulai bekerja sebagai barista sejak tahun 2017. Dunia kopi adalah passion saya. Setiap cangkir kopi memiliki cerita, dan saya suka menyajikannya dengan cinta dan seni.</p>
+    <div class="skill-block">
+      <div class="skill-label">Espresso Making <span>85%</span></div>
+      <div class="progress"><div class="progress-bar" style="--w:85%"></div></div>
+    </div>
 
-    <br>
-    <center>
-      <a href="#" style="color: #ff0057; text-decoration: underline;">📄 Download CV PDF</a>
-    </center>
+    <!-- CTA DOWNLOAD -->
+    <div class="center" style="margin-top:40px">
+      <a href="#" class="back-btn" style="border-color:#fff;color:#fff">
+        Download PDF
+      </a>
+    </div>
+
   </div>
 
-  <script>
-    function toggleDarkMode() {
-      document.body.classList.toggle('dark-mode');
-    }
-  </script>
 </body>
 </html>
