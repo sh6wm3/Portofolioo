@@ -2,88 +2,65 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <title>Daftar Akun</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daftar Akun | Marshal</title>
+
+  <!-- ====== basic style ====== -->
   <style>
-    body {
-      margin: 0;
-      font-family: 'Montserrat', sans-serif;
-      background-color: #0d111d;
-      color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-    .form-container {
-      background-color: #1c1c1c;
-      padding: 32px;
-      border-radius: 10px;
-      box-shadow: 0 0 20px rgba(168, 138, 221, 0.2);
-      width: 320px;
-    }
-    h2 {
-      margin-bottom: 20px;
-      color: #a88add;
-      text-align: center;
-    }
-    input, button {
-      width: 100%;
-      padding: 12px;
-      margin: 8px 0;
-      border: none;
-      border-radius: 6px;
-      font-size: 1rem;
-    }
-    input {
-      background-color: #2a2a2a;
-      color: #fff;
-    }
-    button {
-      background-color: #a88add;
-      color: #fff;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-    button:hover {
-      background-color: #7e6bc4;
-    }
+    *{margin:0;padding:0;box-sizing:border-box;font-family:Montserrat,Arial,sans-serif}
+    body{
+      display:flex;justify-content:center;align-items:center;min-height:100vh;
+      background:#0d111d;color:#fff}
+    .card{
+      width:320px;padding:32px;border-radius:12px;background:#1c1c1c;
+      box-shadow:0 0 20px rgba(168,138,221,.18)}
+    h2{margin-bottom:20px;text-align:center;color:#a88add}
+    input,button{
+      width:100%;padding:12px;margin:8px 0;border:none;border-radius:6px;font-size:1rem}
+    input{background:#242424;color:#fff}
+    button{
+      background:#a88add;color:#fff;font-weight:bold;cursor:pointer;transition:.25s}
+    button:hover{background:#7e6bc4}
   </style>
 </head>
 <body>
-  <div class="form-container">
+
+  <div class="card">
     <h2>Daftar Akun</h2>
-    <input type="email" id="email" placeholder="Email" required />
-    <input type="password" id="password" placeholder="Password" required />
-    <button onclick="register()">Daftar</button>
+
+    <input type="email"    id="email"    placeholder="Email"    autocomplete="email" required>
+    <input type="password" id="password" placeholder="Password" autocomplete="new-password" required>
+
+    <button id="regBtn">Daftar</button>
   </div>
 
-  <!-- Supabase JS SDK -->
+  <!-- ============ Supabase CDN ============ -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
-    const { createClient } = supabase;
-    const supabaseClient = createClient(
+    /* GANTI key kalau kamu rotate di dashboard */
+    const supabase = window.supabase.createClient(
       'https://egawvajdbuxobbatzigt.supabase.co',
-      'sb-publishable-RCwXbT5eBBrB4pN67oNcoQ_wB7NJkU1'
+      'sb-publishable-RCwXbT5eBBrB4pN67oNcoQ_wB7NJkU1'   // ← Publishable Key
     );
 
-    async function register() {
-      const email = document.getElementById("email").value;
-      const password = document.getElementById("password").value;
+    document.getElementById('regBtn').onclick = async () => {
+      const email    = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value.trim();
 
-      const { data, error } = await supabaseClient.auth.signUp({
-        email,
-        password
-      });
-
-      if (error) {
-        alert("Gagal daftar: " + error.message);
-      } else {
-        alert("Registrasi berhasil! Silakan login.");
-        window.location.href = "login.html";
+      if(!email || !password){
+        alert('Email dan password wajib diisi');
+        return;
       }
-    }
+
+      const { error } = await supabase.auth.signUp({ email, password });
+
+      if(error){
+        alert('Gagal daftar: ' + error.message);
+      }else{
+        alert('Registrasi berhasil! Silakan login.');
+        window.location.href = 'login.html';
+      }
+    };
   </script>
 </body>
 </html>
