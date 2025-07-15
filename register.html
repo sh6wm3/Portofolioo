@@ -3,37 +3,76 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Register</title>
+  <title>Daftar Akun</title>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <style>
+    body {
+      background-color: #0d111d;
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    h1 {
+      margin-bottom: 20px;
+      color: #a88add;
+    }
+    input, button {
+      padding: 12px;
+      margin: 8px;
+      width: 260px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+    input {
+      background-color: #1c1c1c;
+      color: #fff;
+    }
+    button {
+      background-color: #a88add;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #7e6bc4;
+    }
+  </style>
 </head>
 <body>
-  <h2>Daftar Akun</h2>
-  <form id="register-form">
-    <input type="email" id="email" placeholder="Email" required><br>
-    <input type="password" id="password" placeholder="Password" required><br>
-    <button type="submit">Daftar</button>
-  </form>
+  <h1>Daftar Akun</h1>
+  <input type="email" id="email" placeholder="Email" />
+  <input type="password" id="password" placeholder="Password" />
+  <button onclick="register()">Daftar</button>
 
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
-    const { createClient } = supabase;
-    const supabaseUrl = 'https://egawvajdbuxobbatzigt.supabase.co';
-    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...';
-    const supabaseClient = createClient(supabaseUrl, supabaseKey);
+    const supabase = supabase.createClient(
+      'https://egawvajdbuxobbatzigt.supabase.co',
+      'fwwmncptsctxxxkipqtm'
+    );
 
-    const form = document.getElementById('register-form');
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
+    async function register() {
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
 
-      const { error } = await supabaseClient.auth.signUp({ email, password });
+      const { data, error } = await supabase.auth.signUp({
+        email,
+        password
+      });
+
       if (error) {
-        alert('Gagal daftar: ' + error.message);
+        alert("Gagal daftar: " + error.message);
       } else {
-        alert('Berhasil daftar! Silakan login.');
-        window.location.href = 'login.html';
+        alert("Akun berhasil dibuat! Silakan login.");
+        window.location.href = "login.html";
       }
-    });
+    }
   </script>
 </body>
 </html>
