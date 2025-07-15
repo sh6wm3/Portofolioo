@@ -1,157 +1,66 @@
-<!DOCTYPE html><html lang="id">
-<head>
+<!DOCTYPE html><html lang="id"><head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Andra Marshal | Portofolio</title>  <!-- Font & Icon -->  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>  <!-- STYLE -->  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
-
+  <title>Andra Marshal | Portofolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
     body {
       font-family: 'Montserrat', sans-serif;
       background-color: #0d111d;
       color: #fff;
     }
-
-    a {
-      text-decoration: none;
-      color: #a88add;
-    }
-
-    a:hover {
-      color: #7e6bc4;
-    }
-
+    a { text-decoration: none; color: #a88add; }
+    a:hover { color: #7e6bc4; }
     header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 40px;
-      background-color: #1c1c1c;
-      position: sticky;
-      top: 0;
-      z-index: 999;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 40px; background-color: #1c1c1c; position: sticky;
+      top: 0; z-index: 999;
     }
-
-    header h1 {
-      color: #fff;
-      font-size: 24px;
-    }
-
-    .nav-links a {
-      margin-left: 24px;
-      font-weight: bold;
-    }
-
-    .burger {
-      display: none;
-      font-size: 24px;
-      color: #fff;
-      background: none;
-      border: none;
-      cursor: pointer;
-    }
-
-    .section {
-      padding: 80px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-
-    .hero {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
-
-    .hero-text h2 {
-      font-size: 36px;
-      margin-bottom: 16px;
-    }
-
-    .typing-text {
-      font-style: italic;
-      font-size: 18px;
-      color: #ccc;
-      min-height: 24px;
-    }
-
-    .btn {
-      margin-top: 24px;
-      padding: 12px 24px;
-      background-color: #a88add;
-      border: none;
-      color: #fff;
-      font-weight: bold;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-
-    .btn:hover {
-      background-color: #7e6bc4;
-    }
-
-    .side-menu {
-      display: none;
-    }
-
-    .overlay {
-      display: none;
-    }
-
+    header h1 { color: #fff; font-size: 24px; }
+    .nav-links a { margin-left: 24px; font-weight: bold; }
+    .burger { display: none; font-size: 24px; color: #fff; background: none; border: none; cursor: pointer; }
+    .section { padding: 80px 20px; max-width: 1000px; margin: auto; }
+    .hero { display: flex; flex-direction: column; align-items: center; text-align: center; }
+    .hero-text h2 { font-size: 36px; margin-bottom: 16px; }
+    .typing-text { font-style: italic; font-size: 18px; color: #ccc; min-height: 24px; }
+    .side-menu { display: none; }
+    .overlay { display: none; }
     @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-      }
-
-      .burger {
-        display: block;
-      }
-
+      .nav-links { display: none; }
+      .burger { display: block; }
       .side-menu {
-        display: flex;
-        flex-direction: column;
-        position: fixed;
-        top: 0;
-        right: -250px;
-        width: 200px;
-        background: #1c1c1c;
-        height: 100vh;
-        padding: 20px;
-        transition: right 0.3s ease;
-        z-index: 1000;
+        display: flex; flex-direction: column;
+        position: fixed; top: 0; right: -250px; width: 200px;
+        background: #1c1c1c; height: 100vh; padding: 20px;
+        transition: right 0.3s ease; z-index: 1000;
       }
-
-      .side-menu.open {
-        right: 0;
-      }
-
+      .side-menu.open { right: 0; }
       .overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background: rgba(0,0,0,0.6);
+        display: none; position: fixed; top: 0; left: 0;
+        width: 100vw; height: 100vh; background: rgba(0,0,0,0.6);
         z-index: 999;
       }
-
-      .overlay.show {
-        display: block;
-      }
+      .overlay.show { display: block; }
     }
-  </style></head>
-<body><!-- Proteksi Login --><script>
+    .skill-item { margin: 12px 0; }
+    .progress-bar {
+      background: #333; border-radius: 6px; overflow: hidden;
+    }
+    .progress-fill {
+      background: #a88add; height: 10px; width: 0; transition: width 1s ease;
+    }
+    .projek-img { margin-top: 24px; max-width: 100%; border-radius: 12px; box-shadow: 0 0 10px rgba(255,255,255,0.1); }
+  </style>
+</head>
+<body>
+<script>
   if (!localStorage.getItem("auth_user")) {
     window.location.replace("login.html");
   }
-</script><div class="overlay" id="overlay"></div>
+</script>
+<div class="overlay" id="overlay"></div>
 <nav class="side-menu" id="side-menu">
   <a href="#beranda">Beranda</a>
   <a href="#skills">Skill</a>
@@ -161,7 +70,8 @@
   <a href="hosting.html">Hosting</a>
   <a href="contact.html">Kontak</a>
   <a href="#" id="logout-mobile" style="margin-top:24px;color:#ff6d6d"><i class="fas fa-sign-out-alt"></i> Logout</a>
-</nav><header>
+</nav>
+<header>
   <h1>Marshal</h1>
   <div class="nav-links">
     <a href="#beranda">Beranda</a>
@@ -174,18 +84,33 @@
     <a href="#" id="logout-desktop" style="margin-left:24px;color:#ff6d6d"><i class="fas fa-sign-out-alt"></i> Logout</a>
   </div>
   <button class="burger" id="burger"><i class="fas fa-bars"></i></button>
-</header><section id="beranda" class="section hero">
+</header>
+<section id="beranda" class="section hero">
   <div class="hero-text">
     <h2>Halo Gua Andra!</h2>
     <p class="typing-text"></p>
-    <a href="cv.html" class="btn">Lihat CV Saya</a>
   </div>
-</section><section id="skills" class="section skills">
-  <!-- Isi skills -->
-</section><section id="projek" class="section">
-  <!-- Isi projek -->
-</section><script>
-  // Efek Ketik
+</section>
+<section id="skills" class="section skills">
+  <h2>Skill</h2>
+  <div class="skill-item">
+    <p>Latte Art</p>
+    <div class="progress-bar"><div class="progress-fill" style="width: 80%"></div></div>
+  </div>
+  <div class="skill-item">
+    <p>Manual Brewing</p>
+    <div class="progress-bar"><div class="progress-fill" style="width: 70%"></div></div>
+  </div>
+  <div class="skill-item">
+    <p>Espresso Machine</p>
+    <div class="progress-bar"><div class="progress-fill" style="width: 85%"></div></div>
+  </div>
+</section>
+<section id="projek" class="section">
+  <h2>Projek Forum SA-MP</h2>
+  <img src="https://raw.githubusercontent.com/sh6wm3/Portofolioo/main/assets/forum-samp.jpg" alt="Forum SA-MP" class="projek-img" />
+</section>
+<script>
   const text = "Barista yang terlatih …";
   let i = 0;
   function type() {
@@ -194,29 +119,13 @@
       setTimeout(type, 20);
     }
   }
-  window.addEventListener("load", type);
+  window.addEventListener("load", type);const burger = document.getElementById("burger"), side = document.getElementById("side-menu"), over = document.getElementById("overlay");
 
-  // Burger menu
-  const burger = document.getElementById("burger"),
-        side = document.getElementById("side-menu"),
-        over = document.getElementById("overlay");
+burger.addEventListener("click", () => { side.classList.add("open"); over.classList.add("show"); });
 
-  burger.addEventListener("click", () => {
-    side.classList.add("open");
-    over.classList.add("show");
-  });
+over.addEventListener("click", () => { side.classList.remove("open"); over.classList.remove("show"); });
 
-  over.addEventListener("click", () => {
-    side.classList.remove("open");
-    over.classList.remove("show");
-  });
+const doLogout = () => { localStorage.removeItem("auth_user"); location.replace("login.html"); }; document.getElementById("logout-desktop").addEventListener("click", doLogout); document.getElementById("logout-mobile").addEventListener("click", doLogout); </script>
 
-  // Logout
-  const doLogout = () => {
-    localStorage.removeItem("auth_user");
-    location.replace("login.html");
-  };
-  document.getElementById("logout-desktop").addEventListener("click", doLogout);
-  document.getElementById("logout-mobile").addEventListener("click", doLogout);
-</script></body>
+</body>
 </html>
