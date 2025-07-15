@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>CV Andra Marshal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"/>
 
   <style>
@@ -15,95 +17,90 @@
     }
 
     body {
-      background-color: var(--bg);
-      font-family: 'Montserrat', sans-serif;
-      color: #fff;
       margin: 0;
-      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: var(--bg);
+      color: white;
     }
-<!-- Tambahin setelah <body> -->
-<body>
 
-  <a href="index.html" style="
-    display: inline-block;
-    margin: 20px;
-    padding: 10px 20px;
-    background: #1a1f30;
-    color: #a88add;
-    font-weight: bold;
-    border-radius: 8px;
-    text-decoration: none;
-    transition: background 0.3s ease;
-  ">&larr; Kembali ke Beranda</a>
+    a.back {
+      display: inline-block;
+      margin: 20px;
+      padding: 10px 20px;
+      background: var(--navy);
+      color: var(--primary);
+      font-weight: bold;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    a.back:hover {
+      background: #232842;
+    }
+
     .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 40px 20px;
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
     }
 
     .photo {
       text-align: center;
-      margin-bottom: 30px;
     }
 
     .photo img {
-      max-width: 200px;
-      border-radius: 100%;
-      border: 4px solid var(--primary);
-      box-shadow: 0 0 20px var(--primary);
+      width: 180px;
+      border-radius: 12px;
+      margin-top: 10px;
     }
 
     h1 {
-      font-size: 32px;
       text-align: center;
-      margin-bottom: 10px;
+      font-size: 28px;
+      margin-top: 20px;
     }
 
-    p.sub {
+    .sub {
       text-align: center;
-      color: #ccc;
       font-style: italic;
+      color: #ccc;
       margin-bottom: 30px;
     }
 
     section {
-      margin-top: 40px;
+      margin-bottom: 40px;
     }
 
     h2 {
       color: var(--primary);
-      border-bottom: 2px solid var(--primary);
+      border-bottom: 1px solid var(--hover);
       padding-bottom: 6px;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
     }
 
     ul {
-      list-style: square;
+      list-style-type: disc;
       padding-left: 20px;
     }
 
-    .btn-download {
-      display: block;
-      margin: 40px auto 0;
-      background: var(--primary);
-      padding: 12px 24px;
-      color: #fff;
-      border: none;
-      font-weight: bold;
+    .footer {
       text-align: center;
-      border-radius: 8px;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background 0.3s ease;
-      width: fit-content;
+      padding: 20px;
+      font-size: 14px;
+      color: #888;
     }
 
-    .btn-download:hover {
-      background: var(--hover);
+    @media(max-width: 600px) {
+      .photo img {
+        width: 130px;
+      }
     }
   </style>
 </head>
 <body>
+
+  <a href="index.html" class="back">&larr; Kembali ke Beranda</a>
 
   <div class="container">
     <div class="photo">
@@ -114,62 +111,40 @@
     <p class="sub">Developer Forum SA-MP & Barista Berpengalaman</p>
 
     <section>
-      <h2>Tentang Saya</h2>
-      <p>Saya adalah seorang developer web dan forum SA-MP, serta memiliki latar belakang kuat sebagai barista sejak 2017. Disiplin, jujur, dan semangat belajar adalah prinsip utama saya, baik di dunia teknologi maupun dunia kopi.</p>
-    </section>
-
-    <section>
       <h2>Pengalaman Kerja</h2>
-      <p><strong>Start a Barista:</strong> 2017 – 2025</p>
       <ul>
-        <li>Yukscoffe – 6 bulan (Barista)</li>
-        <li>Jack Coffee – 1 tahun (Barista)</li>
-        <li>Kopisoe – 1 tahun (Head Barista)</li>
-        <li>Giardino Cafe – 1,3 tahun (Barista)</li>
-        <li>Buka Angkringan / Usaha Sendiri – 1,5 tahun</li>
-        <li>Varuna Cafe – 8 bulan (Barista)</li>
-        <li>Black Beans Cafe – 1 tahun (Head Barista)</li>
+        <li>Yukscoffe: 6 Bulan (Barista)</li>
+        <li>Jack Coffe: 1 Tahun (Barista)</li>
+        <li>Kopisoe: 1 Tahun (Head Barista)</li>
+        <li>Giardino Cafe: 1,3 Tahun (Barista)</li>
+        <li>Varuna Cafe: 8 Bulan (Barista)</li>
+        <li>Black Beans Cafe: 1 Tahun (Head Barista)</li>
       </ul>
-      <p style="margin-top: 20px;"><strong>Prinsip Kerja Saya:</strong></p>
-      <ul>
-        <li>Selalu mendahulukan kedisiplinan dalam bekerja</li>
-        <li>Mampu bekerja dalam tim (teamwork)</li>
-        <li>Jujur dan rajin selalu jadi prioritas</li>
-        <li>Mematuhi SOP yang ditetapkan oleh perusahaan</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Skill Dunia Kopi</h2>
-      <ul>
-        <li>Latte Art – 80%</li>
-        <li>Manual Brewing – 70%</li>
-        <li>Espresso Calibration – 85%</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Tentang Dunia Kopi</h2>
-      <ul>
-        <li>Mampu meracik dan memberikan ide pembuatan kopi</li>
-        <li>Suka mencoba hal baru & terbuka untuk belajar lebih dalam</li>
-        <li>Latte Art & Manual Brewing selalu diasah secara bertahap</li>
-        <li>Teliti dalam mengecek kualitas makanan/minuman untuk customer</li>
-        <li>Selalu melakukan check-up mesin kopi saat opening & closing</li>
-      </ul>
+      <p style="margin-top:10px;">Start a Barista: 2017 - 2025</p>
     </section>
 
     <section>
       <h2>Soft Skill</h2>
       <ul>
-        <li>Problem Solving</li>
-        <li>Teamwork & Komunikasi</li>
-        <li>Kreatif & Adaptif</li>
+        <li>Sangat disiplin saat bekerja</li>
+        <li>Bisa bekerja dalam tim (teamwork)</li>
+        <li>Jujur & rajin</li>
+        <li>Selalu mematuhi SOP perusahaan</li>
       </ul>
     </section>
 
-    <a class="btn-download" href="cv-andra.pdf" download>📄 Download CV PDF</a>
+    <section>
+      <h2>About Work Coffee</h2>
+      <ul>
+        <li>Bisa meracik coffee dan memberikan ide menu</li>
+        <li>Suka belajar hal baru seputar coffee</li>
+        <li>Latte art dan manual brewing terus dikembangkan</li>
+        <li>Teliti terhadap rasa & kualitas makanan/minuman</li>
+        <li>Selalu check-up mesin coffee setiap opening & closing</li>
+      </ul>
+    </section>
   </div>
 
+  <div class="footer">© 2025 Andra Marshal</div>
 </body>
 </html>
