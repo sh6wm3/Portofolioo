@@ -1,112 +1,165 @@
-<!DOCTYPE html><html lang="id">
+<!DOCTYPE html>
+<html lang="id">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jasa Developer | Marshal</title>
+
+  <!-- Font & Icon -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
   <style>
-    body {
-      margin: 0;
-      font-family: 'Montserrat', sans-serif;
-      background: #0e0e0e;
-      color: #fff;
-      line-height: 1.6;
+    :root{
+      --navy: #11224d;
+      --navy-light:#1c3879;
+      --navy-accent:#2e4ead;
+      --text:#f1f5ff;
     }
-    header {
-      background: #0e0e0e;
-      padding: 20px 32px;
-      border-bottom: 1px solid #222;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{
+      font-family:'Montserrat',sans-serif;
+      background:var(--navy);
+      color:var(--text);
+      line-height:1.65;
     }
-    header h1 {
-      color: #ff0055;
-      font-size: 1.5rem;
+
+    /* ---------- HEADER ---------- */
+    header{
+      background:var(--navy-light);
+      padding:20px 32px;
+      border-bottom:2px solid var(--navy-accent);
+      position:sticky;top:0;z-index:1000;
+      display:flex;align-items:center;justify-content:space-between;
     }
-    .section {
-      max-width: 960px;
-      margin: auto;
-      padding: 80px 32px;
+    header h1{font-size:1.5rem;color:var(--text)}
+    a.back{color:var(--text);text-decoration:none;font-weight:600;}
+    a.back:hover{color:#8fa8ff;}
+
+    /* ---------- LAYOUT ---------- */
+    .section{max-width:960px;margin:auto;padding:80px 32px;}
+    h2{font-size:2.2rem;margin-bottom:24px;color:#8fa8ff;}
+    p.lead{max-width:700px;margin-bottom:32px;}
+
+    /* ---------- CARD ---------- */
+    .service-card{
+      background:var(--navy-light);
+      border-left:4px solid var(--navy-accent);
+      padding:24px;
+      border-radius:10px;
+      margin-bottom:28px;
     }
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 16px;
-      color: #ff0055;
+    .service-card h3{margin:0 0 10px;font-size:1.2rem;color:#8fa8ff}
+    .price-table{
+      width:100%;border-collapse:collapse;margin-top:16px;font-size:.95rem
     }
-    .service-card {
-      background: #1c1c1c;
-      border-left: 4px solid #ff0055;
-      padding: 20px;
-      border-radius: 8px;
-      margin-bottom: 24px;
+    .price-table th,.price-table td{
+      border:1px solid #29418a;padding:10px;text-align:center;
     }
-    .service-card h3 {
-      margin: 0 0 10px;
+    .price-table th{background:#1a2d63;}
+
+    /* ---------- CTA BUTTON ---------- */
+    .btn{
+      display:inline-block;
+      background:var(--navy-accent);
+      padding:14px 28px;
+      border-radius:8px;
+      color:var(--text);
+      text-decoration:none;
+      font-weight:700;
+      margin-top:40px;
+      transition:.25s;
     }
-    .btn {
-      display: inline-block;
-      background: #ff0055;
-      padding: 12px 24px;
-      border-radius: 6px;
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s;
+    .btn:hover{background:#546dff;}
+
+    /* ---------- TESTIMONI ---------- */
+    .testimonial{
+      margin-top:70px;
+      background:#1a2d63;
+      padding:26px;
+      border-radius:10px;
+      position:relative;
     }
-    .btn:hover {
-      background: #ff3366;
+    .testimonial:before{
+      content:'“';font-size:4rem;color:#546dff;position:absolute;top:-25px;left:20px;
     }
-    .testimonial {
-      margin-top: 60px;
-    }
-    .testimonial p {
-      font-style: italic;
-      color: #ccc;
-    }
-    .testimonial span {
-      display: block;
-      margin-top: 8px;
-      color: #ff0055;
-      font-weight: bold;
-    }
-    .back-btn {
-      margin-top: 40px;
-      display: inline-block;
-    }
+    .testimonial p{margin-left:24px;font-style:italic;}
+    .testimonial span{display:block;margin-top:12px;font-weight:700;color:#8fa8ff;}
   </style>
 </head>
 <body>
+
+  <!-- HEADER -->
   <header>
-    <h1>Marshal Developer</h1>
-  </header>  <section class="section">
-    <h2>Layanan Jasa Developer</h2>
-    <p>Saya membuka layanan pengembangan website & forum GTA SA-MP, termasuk desain, UI/UX, dan setup server yang responsif dan menarik.</p><div class="service-card">
-  <h3><i class="fas fa-code"></i> Website Portofolio / Bisnis</h3>
-  <p>Pembuatan website portofolio atau website bisnis modern, responsif, dan cepat. Desain disesuaikan dengan kebutuhan Anda.</p>
-</div>
+    <h1>Jasa Developer Marshal</h1>
+    <a href="index.html" class="back"><i class="fas fa-arrow-left"></i> Kembali</a>
+  </header>
 
-<div class="service-card">
-  <h3><i class="fas fa-gamepad"></i> Forum SA-MP + UCP</h3>
-  <p>Custom forum untuk komunitas GTA SA-MP lengkap dengan tampilan UCP aesthetic, rules, struktur admin, dan tema dark mode.</p>
-</div>
+  <!-- MAIN SECTION -->
+  <section class="section">
+    <h2>Layanan Pengembangan & Scripting</h2>
+    <p class="lead">
+      Saya membuka jasa pembuatan website, forum, serta scripting GTA SA-MP. Fokus pada performa, tampilan modern, dan pengalaman pengguna yang maksimal.
+    </p>
 
-<div class="service-card">
-  <h3><i class="fas fa-paint-brush"></i> UI/UX & Tampilan Responsive</h3>
-  <p>Fokus pada pengalaman pengguna dan desain visual yang menarik, kompatibel dengan semua ukuran layar dan device.</p>
-</div>
+    <!-- CARD: Website -->
+    <div class="service-card">
+      <h3><i class="fas fa-code"></i> Website Portofolio / Bisnis</h3>
+      <p>Membangun website statis atau dinamis, responsif di semua perangkat, lengkap
+         dengan optimasi kecepatan dan SEO dasar.</p>
+    </div>
 
-<a href="contact.html" class="btn"><i class="fas fa-paper-plane"></i> Hubungi Saya Sekarang</a>
+    <!-- CARD: Forum -->
+    <div class="service-card">
+      <h3><i class="fas fa-gamepad"></i> Forum SA-MP + UCP</h3>
+      <p>Custom forum + User Control Panel dark-mode dengan modul rules, staff list,
+         dan integrasi database server.</p>
+    </div>
 
-<div class="testimonial">
-  <h2>Testimoni Klien</h2>
-  <p>"Marshal sangat profesional, fast response dan hasilnya memuaskan! Forum yang dibuat sangat keren dan modern."</p>
-  <span>— Owner Luminar RP</span>
-</div>
+    <!-- CARD: UI/UX -->
+    <div class="service-card">
+      <h3><i class="fas fa-paint-brush"></i> Desain UI/UX Responsive</h3>
+      <p>Mock-up Figma & implementasi frontend agar tampilan konsisten, mudah dipakai,
+         dan cepat dipahami player atau user.</p>
+    </div>
 
-<a href="index.html" class="btn back-btn"><i class="fas fa-arrow-left"></i> Kembali ke Beranda</a>
+    <!-- CARD: Scripting SA-MP -->
+    <div class="service-card">
+      <h3><i class="fas fa-terminal"></i> Scripting SA-MP</h3>
+      <p>Penulisan / refactor script Pawn yang modular & minim lag (filterscript,
+         gamemode, plugin, textdraw).</p>
+    </div>
 
+    <!-- CARD: Fix Bug -->
+    <div class="service-card">
+      <h3><i class="fas fa-bug"></i> Perbaikan Bug & Optimasi</h3>
+      <p>Analisa log, profiling, dan penanganan crash/bug pada gamemode atau website.</p>
+    </div>
+
+    <!-- CARD: Fitur Textdraw & Dynamic -->
+    <div class="service-card">
+      <h3><i class="fas fa-layer-group"></i> Fitur Textdraw & Dynamic System</h3>
+      <p>Pembuatan HUD, scoreboard, atau sistem dynamic property/vehicle dengan
+         antarmuka admin realtime.</p>
+
+      <!-- tabel harga -->
+      <table class="price-table">
+        <tr><th>Durasi Sewa</th><th>Harga</th></tr>
+        <tr><td>1 minggu</td><td>Rp100.000</td></tr>
+        <tr><td>1 bulan</td><td>Rp300.000</td></tr>
+      </table>
+    </div>
+
+    <!-- CALL TO ACTION -->
+    <a href="contact.html" class="btn"><i class="fas fa-paper-plane"></i> Hubungi Saya Sekarang</a>
+
+    <!-- TESTIMONI -->
+    <div class="testimonial">
+      <p>Marshal cepat tanggap & hasil script-nya rapi. Bug server kami hilang,
+         performa naik drastis!</p>
+      <span>— Owner CityLife RP</span>
+    </div>
   </section>
+
 </body>
 </html>
