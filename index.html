@@ -1,9 +1,11 @@
-<!DOCTYPE html><html lang="id"><head>
+<!DOCTYPE html>
+<html lang="id">
+<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Andra Marshal | Portofolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
     *, *::before, *::after {
       margin: 0;
@@ -140,12 +142,12 @@
       gap: 10px;
       border-radius: 6px;
       color: #2a2a2a;
-      transition: transform 0.2s, box-shadow 0.2s;
       cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
     .skill-item:hover {
-      transform: scale(1.03);
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
     }
     .skill-item img {
       width: 28px;
@@ -207,34 +209,24 @@
   <script>
     const text = "Barista yang terlatih dalam konsistensi & kesabaran, kini menjadi developer yang fokus pada efisiensi, kreativitas, dan scripting SA-MP.";
     let i = 0;
-    function type(){
-      if(i < text.length){
+    function type() {
+      if(i < text.length) {
         document.querySelector('.typing-text').textContent += text.charAt(i++);
         setTimeout(type, 20);
       }
     }
-    window.addEventListener('load', type);const burger = document.getElementById('burger');
-const side = document.getElementById('side-menu');
-const over = document.getElementById('overlay');
-burger.addEventListener('click', () => {
-  side.classList.add('open');
-  over.classList.add('show');
-});
-over.addEventListener('click', () => {
-  side.classList.remove('open');
-  over.classList.remove('show');
-});
-
-// Click effect pada skill
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.skill-item').forEach(item => {
-    item.addEventListener('click', () => {
-      item.classList.add('clicked');
-      setTimeout(() => item.classList.remove('clicked'), 300);
+    window.addEventListener('load', type);
+    const burger = document.getElementById('burger');
+    const side = document.getElementById('side-menu');
+    const over = document.getElementById('overlay');
+    burger.addEventListener('click', () => {
+      side.classList.add('open');
+      over.classList.add('show');
     });
-  });
-});
-
+    over.addEventListener('click', () => {
+      side.classList.remove('open');
+      over.classList.remove('show');
+    });
   </script>
 </body>
 </html>
