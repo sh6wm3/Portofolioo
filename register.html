@@ -1,32 +1,90 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-  <title>Register</title>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Register - Marshal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #0d111d;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    .form-box {
+      background: #1c1c1c;
+      padding: 40px;
+      border-radius: 10px;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+    h2 {
+      margin-bottom: 20px;
+      color: #a88add;
+      text-align: center;
+    }
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 16px;
+      border: none;
+      border-radius: 6px;
+      background: #2a2a2a;
+      color: #fff;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #a88add;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #7e6bc4;
+    }
+    .back {
+      display: block;
+      margin-top: 16px;
+      text-align: center;
+      color: #ccc;
+      font-size: 14px;
+      text-decoration: none;
+    }
+  </style>
 </head>
-<body style="background:#0d111d; color:white; font-family:sans-serif;">
-  <h2>Register Akun</h2>
-  <input type="email" id="email" placeholder="Email"><br><br>
-  <input type="password" id="password" placeholder="Password"><br><br>
-  <button onclick="register()">Daftar</button>
-  
+<body>
+  <div class="form-box">
+    <h2>Register</h2>
+    <input type="email" id="email" placeholder="Email" required />
+    <input type="password" id="password" placeholder="Password" required />
+    <button onclick="register()">Daftar</button>
+    <a class="back" href="login.html">Sudah punya akun? Login</a>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
   <script>
     const supabaseUrl = 'https://egawvajdbuxobbatzigt.supabase.co';
-    const supabaseKey = 'PASTE_API_KEY_KAMU_DI_SINI';
+    const supabaseKey = 'eyJhbGciOi...Vcqo'; // pakai key lu tadi
     const supabase = supabase.createClient(supabaseUrl, supabaseKey);
 
     async function register() {
       const email = document.getElementById('email').value;
       const password = document.getElementById('password').value;
-
-      const { error } = await supabase
-        .from('Marshal')
-        .insert([{ email, password }]);
+      const { error } = await supabase.auth.signUp({ email, password });
 
       if (error) {
-        alert('Gagal daftar: ' + error.message);
+        alert('Registrasi gagal: ' + error.message);
       } else {
-        alert('Pendaftaran berhasil!');
+        alert('Registrasi berhasil! Silakan login.');
+        window.location.href = 'login.html';
       }
     }
   </script>
