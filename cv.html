@@ -14,6 +14,7 @@
       --hover: #7e6bc4;
       --bg: #0d111d;
       --navy: #1a1f30;
+      --gray: #ccc;
     }
 
     body {
@@ -64,7 +65,7 @@
     .sub {
       text-align: center;
       font-style: italic;
-      color: #ccc;
+      color: var(--gray);
       margin-bottom: 30px;
     }
 
@@ -82,6 +83,30 @@
     ul {
       list-style-type: disc;
       padding-left: 20px;
+    }
+
+    .skill-bar {
+      margin: 12px 0;
+    }
+
+    .skill-label {
+      display: flex;
+      justify-content: space-between;
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+
+    .bar {
+      background: #2b2f44;
+      border-radius: 8px;
+      overflow: hidden;
+      height: 14px;
+    }
+
+    .bar-fill {
+      height: 100%;
+      background: var(--primary);
+      transition: width 0.5s ease;
     }
 
     .footer {
@@ -108,39 +133,63 @@
     </div>
 
     <h1>Andra Lutfiansyah Marshal</h1>
-    <p class="sub">Developer Forum SA-MP & Barista Berpengalaman</p>
+    <p class="sub">Dedikasi. Disiplin. Detail. Developer & Barista dengan pengalaman dan rasa.</p>
 
     <section>
       <h2>Pengalaman Kerja</h2>
+      <p>Perjalanan karier saya dimulai sebagai barista sejak 2017. Selama lebih dari 7 tahun, saya mengembangkan keahlian dalam meracik kopi, membangun team yang solid, hingga mengelola outlet.</p>
       <ul>
         <li>Yukscoffe: 6 Bulan (Barista)</li>
         <li>Jack Coffe: 1 Tahun (Barista)</li>
         <li>Kopisoe: 1 Tahun (Head Barista)</li>
         <li>Giardino Cafe: 1,3 Tahun (Barista)</li>
+        <li>Buka Angkringan / Usaha Sendiri: 1,5 Tahun</li>
         <li>Varuna Cafe: 8 Bulan (Barista)</li>
         <li>Black Beans Cafe: 1 Tahun (Head Barista)</li>
       </ul>
-      <p style="margin-top:10px;">Start a Barista: 2017 - 2025</p>
+      <p style="margin-top:10px;">Total pengalaman barista: <strong>2017 - 2025</strong></p>
     </section>
 
     <section>
       <h2>Soft Skill</h2>
       <ul>
-        <li>Sangat disiplin saat bekerja</li>
-        <li>Bisa bekerja dalam tim (teamwork)</li>
-        <li>Jujur & rajin</li>
-        <li>Selalu mematuhi SOP perusahaan</li>
+        <li>Disiplin tinggi saat bekerja</li>
+        <li>Kolaboratif dan mampu bekerja dalam tim</li>
+        <li>Jujur, teliti, dan rajin</li>
+        <li>Sangat mematuhi SOP perusahaan</li>
       </ul>
+    </section>
+
+    <section>
+      <h2>Skill Coffee & Brewing</h2>
+      <div class="skill-bar">
+        <div class="skill-label">
+          <span>Latte Art</span><span>80%</span>
+        </div>
+        <div class="bar"><div class="bar-fill" style="width:80%"></div></div>
+      </div>
+      <div class="skill-bar">
+        <div class="skill-label">
+          <span>Manual Brewing</span><span>65%</span>
+        </div>
+        <div class="bar"><div class="bar-fill" style="width:65%"></div></div>
+      </div>
+      <div class="skill-bar">
+        <div class="skill-label">
+          <span>Teamwork</span><span>90%</span>
+        </div>
+        <div class="bar"><div class="bar-fill" style="width:90%"></div></div>
+      </div>
     </section>
 
     <section>
       <h2>About Work Coffee</h2>
       <ul>
-        <li>Bisa meracik coffee dan memberikan ide menu</li>
-        <li>Suka belajar hal baru seputar coffee</li>
-        <li>Latte art dan manual brewing terus dikembangkan</li>
-        <li>Teliti terhadap rasa & kualitas makanan/minuman</li>
-        <li>Selalu check-up mesin coffee setiap opening & closing</li>
+        <li>Mampu meracik menu kopi kreatif & signature</li>
+        <li>Selalu tertarik mencoba teknik baru dalam menyeduh</li>
+        <li>Terus mengasah kemampuan Latte Art & Manual Brewing</li>
+        <li>Memperhatikan rasa, tekstur, dan stabilitas produk</li>
+        <li>Rutin cek mesin kopi saat opening & closing outlet</li>
       </ul>
     </section>
   </div>
