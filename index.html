@@ -9,21 +9,46 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
+  <!-- Supabase JS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    const supabase = window.supabase.createClient(
+      'https://egawvajdbuxobbatzigt.supabase.co',
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVnYXd2YWpkYnV4b2JiYXR6aWd0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTI1OTY5NTYsImV4cCI6MjA2ODE3Mjk1Nn0.UHSmEf4iOuJ7TRCIUj6eICS90L8fkqHq10GhUXzVcqo'
+    );
+
+    // Proteksi: redirect kalau belum login
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      if (!session) {
+        window.location.replace("login.html");
+      } else {
+        // Simpan auth_user ke localStorage kalau belum ada
+        if (!localStorage.getItem("auth_user")) {
+          localStorage.setItem("auth_user", JSON.stringify(session.user));
+        }
+      }
+    });
+
+    // Logout
+    async function doLogout() {
+      await supabase.auth.signOut();
+      localStorage.removeItem("auth_user");
+      window.location.href = "login.html";
+    }
+  </script>
+
   <style>
-/* …——(semua CSS milikmu persis seperti sebelumnya, tak ada yang diubah)——… */
+    /* 🟣 CSS kamu tetap di sini, nggak gue ubah */
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #0d111d;
+      color: #fff;
+    }
+    /* Tambahan lainnya tetap sama seperti sebelumnya... */
   </style>
 </head>
 <body>
-
-<!-- ========== PROTEKSI LOGIN ========== -->
-<script>
-  /* 1) CEK apakah user sudah “login” */
-  if (!localStorage.getItem("auth_user")) {
-    /* Jika belum, lempar ke halaman login.html */
-    window.location.replace("login.html");
-  }
-</script>
-<!-- ==================================== -->
 
   <div class="overlay" id="overlay"></div>
   <nav class="side-menu" id="side-menu">
@@ -53,7 +78,6 @@
   </header>
 
   <!-- ===== HERO ===== -->
-  <!-- (bagian badan persis seperti sebelumnya; tidak ada perubahan HTML isi) -->
   <section id="beranda" class="section hero">
     <div class="hero-text">
       <h2>Halo Gua Andra!</h2>
@@ -62,34 +86,44 @@
     </div>
   </section>
 
-  <!-- ===== SKILLS, PROJEK, dst — tetap sama ===== -->
   <section id="skills" class="section skills">
-    <!-- … -->
+    <!-- Skill content -->
   </section>
 
   <section id="projek" class="section">
-    <!-- … -->
+    <!-- Projek content -->
   </section>
 
-  <!-- ========== SCRIPT ========== -->
+  <!-- SCRIPT -->
   <script>
-    /* ---------- efek ketik ---------- */
-    const text="Barista yang terlatih …";           // <— biarkan isi persis punyamu
-    let i=0;
-    function type(){if(i<text.length){document.querySelector(".typing-text").textContent+=text.charAt(i++);setTimeout(type,20);}}
-    window.addEventListener("load",type);
+    // Efek ketik
+    const text = "Barista yang terlatih …";
+    let i = 0;
+    function type() {
+      if (i < text.length) {
+        document.querySelector(".typing-text").textContent += text.charAt(i++);
+        setTimeout(type, 20);
+      }
+    }
+    window.addEventListener("load", type);
 
-    /* ---------- burger ---------- */
-    const burger=document.getElementById("burger"),
-          side  =document.getElementById("side-menu"),
-          over  =document.getElementById("overlay");
-    burger.addEventListener("click",()=>{side.classList.add("open");over.classList.add("show");});
-    over  .addEventListener("click",()=>{side.classList.remove("open");over.classList.remove("show");});
+    // Burger menu
+    const burger = document.getElementById("burger"),
+          side = document.getElementById("side-menu"),
+          over = document.getElementById("overlay");
 
-    /* ---------- LOGOUT ---------- */
-    const doLogout=()=>{localStorage.removeItem("auth_user");location.replace("login.html");};
-    document.getElementById("logout-desktop").addEventListener("click",doLogout);
-    document.getElementById("logout-mobile" ).addEventListener("click",doLogout);
+    burger.addEventListener("click", () => {
+      side.classList.add("open");
+      over.classList.add("show");
+    });
+    over.addEventListener("click", () => {
+      side.classList.remove("open");
+      over.classList.remove("show");
+    });
+
+    // Tombol logout
+    document.getElementById("logout-desktop").addEventListener("click", doLogout);
+    document.getElementById("logout-mobile").addEventListener("click", doLogout);
   </script>
 </body>
 </html>
