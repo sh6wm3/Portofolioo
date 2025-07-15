@@ -2,11 +2,11 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Andra Marshal | Portofolio</title>
 
   <!-- Font & Icon -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
   <style>
@@ -17,13 +17,14 @@
       --navy-soft: #1a1f30;
     }
     *,*::before,*::after {
-      margin: 0; padding: 0;
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
       scroll-behavior: smooth;
     }
     body {
       font-family: 'Montserrat', sans-serif;
-      background-color: var(--bg);
+      background: var(--bg);
       color: #fff;
     }
     a {
@@ -38,7 +39,7 @@
       justify-content: space-between;
       align-items: center;
       padding: 20px 40px;
-      background-color: var(--navy-soft);
+      background: var(--navy-soft);
       position: sticky;
       top: 0;
       z-index: 999;
@@ -88,7 +89,7 @@
       margin-top: 40px;
     }
     .skill-card {
-      background-color: #161a2d;
+      background: #161a2d;
       padding: 20px;
       border-radius: 12px;
       width: 120px;
@@ -104,16 +105,10 @@
       border-radius: 12px;
       margin-top: 20px;
     }
-    .side-menu, .overlay {
-      display: none;
-    }
+    .side-menu, .overlay { display: none; }
     @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-      }
-      .burger {
-        display: block;
-      }
+      .nav-links { display: none; }
+      .burger { display: block; }
       .side-menu {
         display: flex;
         flex-direction: column;
@@ -127,9 +122,7 @@
         transition: right 0.3s ease;
         z-index: 1000;
       }
-      .side-menu.open {
-        right: 0;
-      }
+      .side-menu.open { right: 0; }
       .side-menu a {
         margin-bottom: 16px;
         font-weight: bold;
@@ -138,16 +131,14 @@
         display: none;
         position: fixed;
         inset: 0;
-        background: rgba(0,0,0,0.6);
+        background: rgba(0, 0, 0, 0.6);
         z-index: 999;
       }
-      .overlay.show {
-        display: block;
-      }
+      .overlay.show { display: block; }
     }
   </style>
 
-  <!-- Proteksi Auth Supabase -->
+  <!-- Proteksi Login + Logout Fix -->
   <script type="module">
     import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
     const supabase = createClient(
@@ -156,23 +147,27 @@
     );
 
     const { data: { session } } = await supabase.auth.getSession();
-    if (!session) window.location.replace('login.html');
+    if (!session) window.location.replace("login.html");
 
     async function doLogout() {
       await supabase.auth.signOut();
-      localStorage.removeItem('supabase.auth.token');
-      window.location.replace('login.html');
+      localStorage.clear();
+      sessionStorage.clear();
+      document.cookie.split(";").forEach((c) => {
+        document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
+      });
+      window.location.href = "login.html";
     }
 
-    window.addEventListener('DOMContentLoaded', () => {
-      document.getElementById('logout-desktop').addEventListener('click', doLogout);
-      document.getElementById('logout-mobile').addEventListener('click', doLogout);
+    window.addEventListener("DOMContentLoaded", () => {
+      document.getElementById("logout-desktop")?.addEventListener("click", doLogout);
+      document.getElementById("logout-mobile")?.addEventListener("click", doLogout);
     });
   </script>
 </head>
 <body>
 
-  <!-- Side Menu & Overlay -->
+  <!-- overlay & side-menu (mobile) -->
   <div class="overlay" id="overlay"></div>
   <nav class="side-menu" id="side-menu">
     <a href="#beranda">Beranda</a>
@@ -185,7 +180,7 @@
     <a href="#" id="logout-mobile" style="margin-top:24px;color:#ff6d6d"><i class="fas fa-sign-out-alt"></i> Logout</a>
   </nav>
 
-  <!-- Header -->
+  <!-- header desktop -->
   <header>
     <h1>Marshal</h1>
     <div class="nav-links">
@@ -201,35 +196,34 @@
     <button class="burger" id="burger"><i class="fas fa-bars"></i></button>
   </header>
 
-  <!-- Hero -->
+  <!-- HERO -->
   <section id="beranda" class="section hero">
     <div class="hero-text">
-      <h2>Halo Gua Andra!</h2>
+      <h2>Halo!</h2>
       <p class="typing-text"></p>
     </div>
   </section>
 
-  <!-- Skill -->
+  <!-- SKILLS -->
   <section id="skills" class="section">
-    <h3 style="font-size:24px; margin-bottom:16px;">Skill Saya</h3>
+    <h3 style="font-size:24px;margin-bottom:16px">Skill Saya</h3>
     <div class="skills-grid">
-      <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"/><div>JavaScript</div></div>
-      <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"/><div>Node.js</div></div>
-      <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"/><div>Python</div></div>
-      <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ruby/ruby-original.svg"/><div>Ruby</div></div>
-      <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg"/><div>C++</div></div>
+      <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt=""><div>JavaScript</div></div>
+      <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt=""><div>Node.js</div></div>
+      <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt=""><div>Python</div></div>
+      <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ruby/ruby-original.svg" alt=""><div>Ruby</div></div>
+      <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt=""><div>C++</div></div>
     </div>
   </section>
 
-  <!-- Projek -->
+  <!-- PROJEK -->
   <section id="projek" class="section">
-    <h3 style="font-size:24px; margin-bottom:16px;">Projek Forum SA-MP</h3>
+    <h3 style="font-size:24px;margin-bottom:16px">Projek Forum SA-MP</h3>
     <img class="projek-img" src="https://raw.githubusercontent.com/sh6wm3/Portofolioo/main/file_00000000901061f7b28958c7bd95b3d7.png" alt="Forum SA-MP">
   </section>
 
-  <!-- Script UI -->
+  <!-- SCRIPT UI -->
   <script>
-    // Efek Ketik
     const text = "Nama gua Marshal. Gue bukan sekedar developer, tapi partner yang bantu lu wujudkan ide jadi realita digital. Dari sistem forum SA-MP, fitur dynamic, textdraw, hingga desain web profesional setiap project adalah tantangan yang gue hadapi dengan totalitas.";
     let i = 0;
     function type() {
@@ -240,7 +234,6 @@
     }
     window.addEventListener("load", type);
 
-    // Burger Menu
     const burger = document.getElementById("burger"),
           side = document.getElementById("side-menu"),
           over = document.getElementById("overlay");
