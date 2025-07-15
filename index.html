@@ -2,10 +2,10 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Andra Marshal | Portofolio</title>
 
-  <!-- Fonts & Icons -->
+  <!-- Font & Icon -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
@@ -31,8 +31,8 @@
     }
 
     a {
-      color: var(--primary);
       text-decoration: none;
+      color: var(--primary);
     }
 
     a:hover {
@@ -51,8 +51,8 @@
     }
 
     header h1 {
-      font-size: 24px;
       color: #fff;
+      font-size: 24px;
     }
 
     .nav-links a {
@@ -122,11 +122,22 @@
       margin-top: 20px;
     }
 
-    .side-menu, .overlay { display: none; }
+    .side-menu {
+      display: none;
+    }
+
+    .overlay {
+      display: none;
+    }
 
     @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .burger { display: block; }
+      .nav-links {
+        display: none;
+      }
+
+      .burger {
+        display: block;
+      }
 
       .side-menu {
         display: flex;
@@ -142,7 +153,9 @@
         z-index: 1000;
       }
 
-      .side-menu.open { right: 0; }
+      .side-menu.open {
+        right: 0;
+      }
 
       .side-menu a {
         margin-bottom: 16px;
@@ -152,43 +165,33 @@
       .overlay {
         display: none;
         position: fixed;
-        inset: 0;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
         background: rgba(0,0,0,0.6);
         z-index: 999;
       }
 
-      .overlay.show { display: block; }
+      .overlay.show {
+        display: block;
+      }
     }
   </style>
 
-  <!-- Supabase Auth (Fix) -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-  <script>
-    const supabase = supabase.createClient(
+  <!-- Proteksi Login Supabase -->
+  <script type="module">
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+    const supabase = createClient(
       'https://egawvajdbuxobbatzigt.supabase.co',
       'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVnYXd2YWpkYnV4b2JiYXR6aWd0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTI1OTY5NTYsImV4cCI6MjA2ODE3Mjk1Nn0.UHSmEf4iOuJ7TRCIUj6eICS90L8fkqHq10GhUXzVcqo'
     );
-
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      if (!session) window.location.replace("login.html");
-    });
-
-    async function doLogout() {
-      await supabase.auth.signOut();
-      localStorage.clear();
-      sessionStorage.clear();
-      window.location.replace("login.html");
-    }
-
-    window.addEventListener("DOMContentLoaded", () => {
-      document.getElementById("logout-desktop")?.addEventListener("click", doLogout);
-      document.getElementById("logout-mobile")?.addEventListener("click", doLogout);
-    });
+    const { data: { session } } = await supabase.auth.getSession();
+    if (!session) window.location.replace("login.html");
   </script>
 </head>
 <body>
 
-  <!-- Side Menu & Overlay -->
   <div class="overlay" id="overlay"></div>
   <nav class="side-menu" id="side-menu">
     <a href="#beranda">Beranda</a>
@@ -201,7 +204,6 @@
     <a href="#" id="logout-mobile" style="margin-top:24px;color:#ff6d6d"><i class="fas fa-sign-out-alt"></i> Logout</a>
   </nav>
 
-  <!-- Header -->
   <header>
     <h1>Marshal</h1>
     <div class="nav-links">
@@ -217,7 +219,7 @@
     <button class="burger" id="burger"><i class="fas fa-bars"></i></button>
   </header>
 
-  <!-- Hero -->
+  <!-- Hero Section -->
   <section id="beranda" class="section hero">
     <div class="hero-text">
       <h2>Halo Gua Andra!</h2>
@@ -225,7 +227,7 @@
     </div>
   </section>
 
-  <!-- Skills -->
+  <!-- Skills Section -->
   <section id="skills" class="section">
     <h3 style="font-size:24px; margin-bottom:16px;">Skill Saya</h3>
     <div class="skills-grid">
@@ -237,14 +239,14 @@
     </div>
   </section>
 
-  <!-- Projek -->
+  <!-- Projek Section -->
   <section id="projek" class="section">
     <h3 style="font-size:24px; margin-bottom:16px;">Projek Forum SA-MP</h3>
     <img class="projek-img" src="https://raw.githubusercontent.com/sh6wm3/Portofolioo/main/file_00000000901061f7b28958c7bd95b3d7.png" alt="Forum SA-MP">
   </section>
 
-  <!-- UI Script -->
   <script>
+    // Efek Ketik
     const text = "Nama gue Andra. Gue bukan sekadar developer, tapi partner yang bantu lo wujudkan ide jadi realita digital. Dari sistem forum SA-MP, fitur dynamic, textdraw, hingga desain web profesional — setiap project adalah tantangan yang gue hadapi dengan totalitas.";
     let i = 0;
     function type() {
@@ -255,9 +257,10 @@
     }
     window.addEventListener("load", type);
 
+    // Burger Menu
     const burger = document.getElementById("burger"),
-          side = document.getElementById("side-menu"),
-          over = document.getElementById("overlay");
+          side   = document.getElementById("side-menu"),
+          over   = document.getElementById("overlay");
 
     burger.addEventListener("click", () => {
       side.classList.add("open");
@@ -268,6 +271,16 @@
       side.classList.remove("open");
       over.classList.remove("show");
     });
+
+    // Logout Action
+    function doLogout() {
+      localStorage.clear();
+      sessionStorage.clear();
+      window.location.href = "login.html";
+    }
+
+    document.getElementById("logout-desktop").addEventListener("click", doLogout);
+    document.getElementById("logout-mobile").addEventListener("click", doLogout);
   </script>
 </body>
 </html>
