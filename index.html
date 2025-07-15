@@ -1,172 +1,213 @@
-<!DOCTYPE html>
-<html lang="id">
+<!DOCTYPE html><html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Andra Marshal | Portofolio</title>
-
-  <!-- font & icon -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-  <!-- klik-suara -->
-  <audio id="click-sound" src="https://cdn.pixabay.com/audio/2022/03/15/audio_841b95f7b6.mp3"></audio>
-
-  <style>
-    /* ---------- Root & Reset ---------- */
-    :root{
-      --biru-tua:#0067bb;
-      --biru-muda:#d3edff;
-      --abu-card:#1c1c1c;
-      --pink:#ff0055;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Andra Marshal | Portofolio</title>  <!-- Font Montserrat -->  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"/>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-    body{font-family:'Montserrat',sans-serif;background:#fff;color:#111;scroll-behavior:smooth}
-
-    /* ---------- Header ---------- */
-    header{
-      background:#fff;border-bottom:2px solid var(--biru-tua);
-      padding:18px 32px;position:sticky;top:0;z-index:1000;
-      display:flex;justify-content:space-between;align-items:center}
-    header h1{color:var(--biru-tua);font-size:1.6rem;font-weight:700}
-    .nav-links a{color:var(--biru-tua);text-decoration:none;margin-left:24px;font-weight:600;transition:.3s}
-    .nav-links a:hover{color:var(--pink)}
-    .burger{display:none;font-size:1.8rem;color:var(--biru-tua);background:none;border:none;cursor:pointer}
-
-    /* Side-menu */
-    .overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(2px);
-      opacity:0;pointer-events:none;transition:.35s;z-index:998}
-    .overlay.show{opacity:1;pointer-events:all}
-    .side{position:fixed;top:0;right:-260px;width:260px;height:100vh;background:#fff;
-      box-shadow:-4px 0 10px rgba(0,0,0,.4);padding:80px 24px;transition:.35s;z-index:999}
-    .side a{display:block;margin:16px 0;color:var(--biru-tua);font-weight:600;text-decoration:none}
-    .side.open{right:0}
-
-    /* ---------- Global layout ---------- */
-    .section{padding:80px 40px}
-    .section-blue{background:linear-gradient(180deg,#fff,var(--biru-muda))}
-    .wrap{max-width:1100px;margin:auto}
-    h2.sec-title{font-size:2.4rem;margin-bottom:16px;color:var(--biru-tua);text-align:center}
-    .btn{display:inline-block;padding:12px 28px;border-radius:8px;background:var(--biru-tua);
-      color:#fff;text-decoration:none;font-weight:700;margin-top:28px;transition:.25s}
-    .btn:hover{background:var(--pink)}
-
-    /* ---------- Hero ---------- */
-    .hero{display:flex;flex-direction:column;align-items:center;text-align:center;gap:32px;
-      min-height:65vh;justify-content:center}
-    .hero h2{font-size:3rem;color:var(--biru-tua)}
-    .typing{font-size:1.1rem;line-height:1.8;min-height:110px;white-space:pre-wrap}
-
-    /* ---------- Skills ---------- */
-    .skills-list{list-style:none;padding:0;
-      display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:18px}
-    .skill{background:var(--abu-card);color:#fff;display:flex;align-items:center;gap:10px;
-      padding:14px;border-radius:6px;border-left:4px solid var(--biru-tua)}
-    .skill img{width:28px;height:28px}
-
-    /* ---------- Project card ---------- */
-    .card{background:var(--abu-card);color:#fff;padding:20px;border-radius:10px;margin:20px 0;
-      border-left:4px solid var(--biru-tua)}
-    .card img{width:100%;border-radius:8px;margin-top:12px}
-
-    /* ---------- Click star ---------- */
-    .star{position:fixed;font-size:24px;color:var(--pink);pointer-events:none;
-      animation:pop 1s ease-out forwards;z-index:9999}
-    @keyframes pop{0%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(2) translateY(-50px)}}
-
-    /* ---------- Responsive ---------- */
-    @media(max-width:768px){.burger{display:block}.nav-links{display:none}}
-  </style>
-</head>
+    :root {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #f0f4ff;
+      color: #2a2a2a;
+    }
+    header {
+      background: #a88add;
+      padding: 20px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    header h1 {
+      font-size: 1.5rem;
+      color: #fff;
+    }
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 24px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    .nav-links a:hover {
+      color: #7e6bc4;
+    }
+    .burger {
+      display: none;
+      font-size: 1.8rem;
+      color: #fff;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+    .side-menu {
+      position: fixed;
+      top: 0;
+      right: -260px;
+      width: 260px;
+      height: 100vh;
+      background: #a88add;
+      padding: 80px 24px;
+      transition: .35s;
+      z-index: 999;
+    }
+    .side-menu a {
+      display: block;
+      color: #fff;
+      margin: 16px 0;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .side-menu.open {
+      right: 0;
+    }
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(2px);
+      opacity: 0;
+      pointer-events: none;
+      transition: .35s;
+      z-index: 998;
+    }
+    .overlay.show {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .section {
+      padding: 80px 40px;
+      max-width: 1100px;
+      margin-inline: auto;
+    }
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 32px;
+      min-height: 65vh;
+      justify-content: center;
+    }
+    .hero h2 {
+      font-size: 2.8rem;
+      color: #a88add;
+    }
+    .typing-text {
+      font-size: 1rem;
+      line-height: 1.7;
+      min-height: 130px;
+      white-space: pre-wrap;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 28px;
+      background: #a88add;
+      border-radius: 8px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      margin-top: 28px;
+      transition: .25s;
+    }
+    .btn:hover {
+      background: #7e6bc4;
+    }
+    .skills ul {
+      list-style: none;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+    }
+    .skill-item {
+      background: #fff;
+      padding: 14px 16px;
+      border-left: 4px solid #a88add;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-radius: 6px;
+      color: #2a2a2a;
+    }
+    .skill-item img {
+      width: 28px;
+      height: 28px;
+    }
+    .project-card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      margin: 12px 0;
+      border-left: 4px solid #a88add;
+      color: #2a2a2a;
+    }
+    .project-card img {
+      width: 100%;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+    .contact {
+      text-align: center;
+    }
+    @media(max-width:768px){
+      .burger {display: block;}
+      .nav-links {display: none;}
+    }
+  </style></head>
 <body>
-
-<!-- overlay & side-menu -->
-<div class="overlay" id="ov"></div>
-<nav class="side" id="side">
-  <a href="#beranda">Beranda</a>
-  <a href="#skills">Skill</a>
-  <a href="#projek">Projek</a>
-  <a href="jasa.html">Jasa Dev</a>
-  <a href="hosting.html">Hosting</a>
-  <a href="cv.html">CV</a>
-  <a href="contact.html">Kontak</a>
-</nav>
-
-<!-- HEADER -->
-<header>
-  <h1>Marshal</h1>
-  <div class="nav-links">
+  <div class="overlay" id="overlay"></div>
+  <nav class="side-menu" id="side-menu">
     <a href="#beranda">Beranda</a>
     <a href="#skills">Skill</a>
     <a href="#projek">Projek</a>
-    <a href="jasa.html">Jasa Dev</a>
-    <a href="hosting.html">Hosting</a>
     <a href="cv.html">CV</a>
+    <a href="jasa-developer.html">Jasa Dev</a>
+    <a href="hosting.html">Hosting</a>
     <a href="contact.html">Kontak</a>
-  </div>
-  <button class="burger" id="burg"><i class="fas fa-bars"></i></button>
-</header>
-
-<!-- HERO -->
-<section id="beranda" class="section hero">
-  <div class="wrap">
-    <h2>Halo, Saya Andra!</h2>
-    <p class="typing" id="typing"></p>
-    <a class="btn" href="cv.html"><i class="fas fa-file-alt"></i> Lihat CV</a>
-  </div>
-</section>
-
-<!-- SKILL -->
-<section id="skills" class="section section-blue">
-  <div class="wrap">
-    <h2 class="sec-title">Skill Coding</h2>
-    <ul class="skills-list">
-      <li class="skill"><img src="assets/svg/python.svg" alt> Python</li>
-      <li class="skill"><img src="assets/svg/javascript.svg" alt> JavaScript</li>
-      <li class="skill"><img src="assets/svg/cplusplus.svg" alt> C++</li>
-      <li class="skill"><img src="assets/svg/nodejs.svg" alt> Node.js</li>
-      <li class="skill"><img src="assets/svg/ruby.svg" alt> Ruby</li>
-    </ul>
-  </div>
-</section>
-
-<!-- PROJEK -->
-<section id="projek" class="section">
-  <div class="wrap">
-    <h2 class="sec-title">Forum SA-MP (Preview)</h2>
-
-    <div class="card">
-      <strong>💻 Forum Luminar RP</strong>
-      <p>Tampilan forum SA-MP bertema gelap + UCP + rules aesthetic.</p>
-      <img src="https://raw.githubusercontent.com/sh6wm3/Marshalweb/main/file_00000000901061f7b28958c7bd95b3d7.png"
-           alt="Forum Luminar RP">
+  </nav>
+  <header>
+    <h1>Marshal</h1>
+    <div class="nav-links">
+      <a href="#beranda">Beranda</a>
+      <a href="#skills">Skill</a>
+      <a href="#projek">Projek</a>
+      <a href="cv.html">CV</a>
+      <a href="jasa-developer.html">Jasa Dev</a>
+      <a href="hosting.html">Hosting</a>
+      <a href="contact.html">Kontak</a>
     </div>
-  </div>
-</section>
+    <button class="burger" id="burger"><i class="fas fa-bars"></i></button>
+  </header>
+  <section id="beranda" class="section hero">
+    <div class="hero-text">
+      <h2>Halo, Saya Andra!</h2>
+      <p class="typing-text"></p>
+      <a href="cv.html" class="btn">Lihat CV Saya</a>
+    </div>
+  </section>
+  <!-- Section lainnya ditambahkan setelah ini -->
+  <script>
+    const text = "Barista yang terlatih dalam konsistensi & kesabaran, kini menjadi developer yang fokus pada efisiensi, kreativitas, dan scripting SA-MP.";
+    let i = 0;
+    function type(){ if(i<text.length){document.querySelector('.typing-text').textContent += text.charAt(i++);setTimeout(type,20);} }
+    window.addEventListener('load',type);const burger=document.getElementById('burger');
+const side=document.getElementById('side-menu');
+const over=document.getElementById('overlay');
+burger.addEventListener('click',()=>{side.classList.add('open');over.classList.add('show');});
+over.addEventListener('click',()=>{side.classList.remove('open');over.classList.remove('show');});
 
-<!-- CTA -->
-<section class="section section-blue">
-  <div class="wrap" style="text-align:center">
-    <h2 class="sec-title">Kolaborasi?</h2>
-    <p>Hubungi saya untuk proyek selanjutnya.</p>
-    <a class="btn" href="contact.html"><i class="fas fa-paper-plane"></i> Kontak</a>
-  </div>
-</section>
-
-<!-- SCRIPT -->
-<script>
-/* typing */
-const txt="Seorang Barista yang terlatih dalam kesabaran, konsistensi dan cita rasa, kini menjelma menjadi Developer yang berfokus pada efisiensi, kreativitas dan teknologi.\n\nSaya aktif membangun sistem interaktif, serta gamemode & scripting GTA San Andreas Multiplayer (SA-MP).\n\nKeahlian bukan hanya apa yang kita tahu, tetapi bagaimana kita terus berkembang.";
-let n=0;function ketik(){if(n<txt.length){document.getElementById('typing').textContent+=txt.charAt(n++);setTimeout(ketik,20);}}
-window.addEventListener('load',ketik);
-
-/* click star */
-document.addEventListener('click',e=>{const s=document.createElement('div');s.className='star';s.textContent='★';s.style.left=`${e.pageX}px`;s.style.top=`${e.pageY}px`;document.body.appendChild(s);document.getElementById('click-sound').play();setTimeout(()=>s.remove(),1000);});
-
-/* burger */
-const b=document.getElementById('burg'),sd=document.getElementById('side'),ov=document.getElementById('ov');
-b.addEventListener('click',()=>{sd.classList.add('open');ov.classList.add('show');});
-ov.addEventListener('click',()=>{sd.classList.remove('open');ov.classList.remove('show');});
-</script>
+  </script>
 </body>
 </html>
