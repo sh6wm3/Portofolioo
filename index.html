@@ -3,22 +3,24 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Andra Marshal | Portofolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <style>
     *, *::before, *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-    body {
-      font-family: 'Montserrat', sans-serif;
-      background: #0c101a;
-      color: #ffffff;
+    :root {
       scroll-behavior: smooth;
     }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #0d111d;
+      color: #fff;
+    }
     header {
-      background: #101522;
+      background: #0d111d;
       padding: 20px 32px;
       display: flex;
       align-items: center;
@@ -26,11 +28,11 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      border-bottom: 1px solid #222;
     }
     header h1 {
       font-size: 1.5rem;
-      color: #61dafb;
+      color: #a88add;
     }
     .nav-links a {
       color: #fff;
@@ -40,7 +42,7 @@
       transition: 0.3s;
     }
     .nav-links a:hover {
-      color: #61dafb;
+      color: #a88add;
     }
     .burger {
       display: none;
@@ -56,7 +58,7 @@
       right: -260px;
       width: 260px;
       height: 100vh;
-      background: #101522;
+      background: #0d111d;
       padding: 80px 24px;
       transition: .35s;
       z-index: 999;
@@ -91,48 +93,56 @@
       margin-inline: auto;
     }
     .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       text-align: center;
-      padding-top: 80px;
+      gap: 32px;
+      min-height: 65vh;
+      justify-content: center;
     }
     .hero h2 {
-      font-size: 2.8rem;
-      color: #61dafb;
+      font-size: 2.4rem;
+      color: #a88add;
     }
     .typing-text {
-      font-size: 1.1rem;
-      margin-top: 12px;
+      font-size: 1rem;
+      line-height: 1.7;
+      min-height: 130px;
       white-space: pre-wrap;
-      min-height: 120px;
     }
     .btn {
       display: inline-block;
       padding: 12px 28px;
-      background: #61dafb;
+      background: #a88add;
       border-radius: 8px;
-      color: #0c101a;
+      color: #fff;
+      text-decoration: none;
       font-weight: 700;
       margin-top: 28px;
-      text-decoration: none;
+      transition: .25s;
     }
     .btn:hover {
-      background: #4ec0e9;
+      background: #7e6bc4;
     }
     .skills ul {
       list-style: none;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 16px;
       padding: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
     }
     .skill-item {
-      background: #151d2e;
-      padding: 14px;
-      border-radius: 8px;
+      background: #1c1c1c;
+      padding: 14px 16px;
+      border-left: 4px solid #a88add;
       display: flex;
       align-items: center;
       gap: 10px;
+      border-radius: 6px;
+      color: #fff;
       cursor: pointer;
-      transition: transform 0.2s;
+      transition: transform .2s ease;
     }
     .skill-item:hover {
       transform: scale(1.05);
@@ -142,17 +152,20 @@
       height: 28px;
     }
     .project-card {
-      background: #151d2e;
+      background: #1c1c1c;
       padding: 20px;
       border-radius: 10px;
-      margin-top: 24px;
-      border-left: 4px solid #61dafb;
-      color: #ffffff;
+      margin: 12px 0;
+      border-left: 4px solid #a88add;
+      color: #fff;
     }
     .project-card img {
       width: 100%;
       border-radius: 8px;
       margin-top: 10px;
+    }
+    .contact {
+      text-align: center;
     }
     @media(max-width:768px){
       .burger {display: block;}
@@ -183,48 +196,47 @@
       <a href="contact.html">Kontak</a>
     </div>
     <button class="burger" id="burger"><i class="fas fa-bars"></i></button>
-  </header>  <section id="beranda" class="section hero">
-    <h2>Halo Gua Andra</h2>
-    <p class="typing-text"></p>
-    <a href="cv.html" class="btn">Lihat CV Saya</a>
-  </section>  <section id="skills" class="section skills">
+  </header>
+  <section id="beranda" class="section hero">
+    <div class="hero-text">
+      <h2>Halo Gua Andra!</h2>
+      <p class="typing-text"></p>
+      <a href="cv.html" class="btn">Lihat CV Saya</a>
+    </div>
+  </section>
+  <section id="skills" class="section skills">
     <h2>Skill Saya</h2>
     <ul>
-      <li class="skill-item" onclick="alert('Python')"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">Python</li>
-      <li class="skill-item" onclick="alert('JavaScript')"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JS">JavaScript</li>
-      <li class="skill-item" onclick="alert('C++')"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++">C++</li>
-      <li class="skill-item" onclick="alert('NodeJs')"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node">NodeJs</li>
-      <li class="skill-item" onclick="alert('Ruby')"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ruby/ruby-original.svg" alt="Ruby">Ruby</li>
+      <li class="skill-item"><img src="https://cdn-icons-png.flaticon.com/512/919/919852.png" alt="Python"> Python</li>
+      <li class="skill-item"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png" alt="JavaScript"> JavaScript</li>
+      <li class="skill-item"><img src="https://cdn-icons-png.flaticon.com/512/6132/6132222.png" alt="C++"> C++</li>
+      <li class="skill-item"><img src="https://cdn-icons-png.flaticon.com/512/919/919825.png" alt="NodeJs"> NodeJs</li>
+      <li class="skill-item"><img src="https://cdn-icons-png.flaticon.com/512/919/919842.png" alt="Ruby"> Ruby</li>
     </ul>
-  </section>  <section id="projek" class="section">
+  </section>
+  <section id="projek" class="section">
     <h2>Forum SA-MP (Preview)</h2>
     <div class="project-card">
       <h3>💻 Forum Luminar RP</h3>
       <p>Tampilan forum SA-MP bertema gelap + UCP + rules aesthetic.</p>
-      <img src="https://raw.githubusercontent.com/sh6wm3/Portofolioo/main/assets/forum-samp.jpg" alt="Forum SA-MP" />
+      <img src="file_00000000901061f7b28958c7bd95b3d7.png" alt="Forum Luminar RP"/>
     </div>
-  </section>  <script>
+  </section>
+  <script>
     const text = "Barista yang terlatih dalam konsistensi & kesabaran, kini menjadi developer yang fokus pada efisiensi, kreativitas, dan scripting SA-MP.";
     let i = 0;
-    function type() {
-      if (i < text.length) {
+    function type(){
+      if(i<text.length){
         document.querySelector('.typing-text').textContent += text.charAt(i++);
-        setTimeout(type, 20);
+        setTimeout(type,20);
       }
     }
-    window.addEventListener('load', type);
-
-    const burger = document.getElementById('burger');
-    const side = document.getElementById('side-menu');
-    const over = document.getElementById('overlay');
-
-    burger.addEventListener('click', () => {
-      side.classList.add('open');
-      over.classList.add('show');
-    });
-    over.addEventListener('click', () => {
-      side.classList.remove('open');
-      over.classList.remove('show');
-    });
-  </script></body>
+    window.addEventListener('load',type);
+    const burger=document.getElementById('burger');
+    const side=document.getElementById('side-menu');
+    const over=document.getElementById('overlay');
+    burger.addEventListener('click',()=>{side.classList.add('open');over.classList.add('show');});
+    over.addEventListener('click',()=>{side.classList.remove('open');over.classList.remove('show');});
+  </script>
+</body>
 </html>
