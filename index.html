@@ -1,65 +1,50 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Andra Marshal | Portofolio</title>
 
   <!-- Font & Icon -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <!-- ======= STYLE ======= -->
   <style>
-    :root{scroll-behavior:smooth}
-    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-    body{font-family:'Montserrat',sans-serif;background:#0d111d;color:#fff}
-
-    /* Header */
-    header{display:flex;justify-content:space-between;align-items:center;
-      padding:20px 40px;background:#1c1c1c;position:sticky;top:0;z-index:999}
-    header h1{font-size:24px;color:#fff;letter-spacing:.5px}
-    .nav-links a{margin-left:24px;font-weight:bold;color:#a88add;text-decoration:none}
-    .nav-links a:hover{color:#7e6bc4}
+    :root{
+      --primary:#a88add;
+      --hover:#7e6bc4;
+      --bg:#0d111d;
+      --navy-soft:#1a1f30;
+    }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
+    body{font-family:'Montserrat',sans-serif;background:var(--bg);color:#fff}
+    a{color:var(--primary);text-decoration:none}a:hover{color:var(--hover)}
+    header{display:flex;justify-content:space-between;align-items:center;padding:20px 40px;
+           background:var(--navy-soft);position:sticky;top:0;z-index:999}
+    header h1{font-size:24px;color:#fff}
+    .nav-links a{margin-left:24px;font-weight:bold}
     .burger{display:none;font-size:24px;color:#fff;background:none;border:none;cursor:pointer}
-
-    /* Side-menu (mobile) */
-    .side-menu{display:flex;flex-direction:column;position:fixed;top:0;right:-250px;
-      width:200px;height:100vh;background:#1c1c1c;padding:20px;transition:right .3s ease;z-index:1000}
-    .side-menu a{color:#a88add;font-weight:bold;margin:12px 0;text-decoration:none}
-    .side-menu.open{right:0}
-    .overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:999}
-    .overlay.show{display:block}
-
-    /* Section */
     .section{padding:80px 20px;max-width:1000px;margin:auto}
-
-    /* Hero */
     .hero{display:flex;flex-direction:column;align-items:center;text-align:center}
-    .hero h2{font-size:36px;margin-bottom:16px;color:#a88add}
-    .typing-text{font-size:18px;color:#ccc;min-height:48px;font-style:italic}
-
-    /* Skills */
-    .skills ul{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px;margin-top:32px}
-    .skill-item{background:#1c1c1c;padding:14px;border-left:4px solid #a88add;border-radius:6px;display:flex;align-items:center;gap:10px}
-    .skill-item img{width:28px;height:28px}
-
-    /* Project */
-    .project-card{background:#1c1c1c;padding:20px;border-left:4px solid #a88add;border-radius:10px;margin-top:24px}
-    .project-card img{width:100%;margin-top:12px;border-radius:8px}
-
-    /* Button */
-    .btn{display:inline-block;padding:12px 24px;background:#a88add;border:none;color:#fff;font-weight:bold;border-radius:6px;
-      cursor:pointer;margin-top:28px}
-    .btn:hover{background:#7e6bc4}
-
+    .hero-text h2{font-size:36px;margin-bottom:16px}
+    .typing-text{font-style:italic;font-size:18px;color:#ccc;max-width:700px}
+    .skills-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:20px;margin-top:40px}
+    .skill-card{background:#161a2d;padding:20px;border-radius:12px;width:120px;text-align:center}
+    .skill-card img{width:48px;margin-bottom:12px}
+    .projek-img{width:100%;max-width:600px;border-radius:12px;margin-top:20px}
+    /* side-menu */
+    .side-menu,.overlay{display:none}
     @media(max-width:768px){
-      .nav-links{display:none}
-      .burger{display:block}
+      .nav-links{display:none}.burger{display:block}
+      .side-menu{display:flex;flex-direction:column;position:fixed;top:0;right:-250px;width:200px;
+                 background:var(--navy-soft);height:100vh;padding:20px;transition:right .3s ease;z-index:1000}
+      .side-menu.open{right:0}.side-menu a{margin-bottom:16px;font-weight:bold}
+      .overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:999}
+      .overlay.show{display:block}
     }
   </style>
 
-  <!-- ======= PROTEKSI SESSION ======= -->
+  <!-- Proteksi & Kendali Auth Supabase -->
   <script type="module">
     import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
 
@@ -68,14 +53,27 @@
       'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVnYXd2YWpkYnV4b2JiYXR6aWd0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTI1OTY5NTYsImV4cCI6MjA2ODE3Mjk1Nn0.UHSmEf4iOuJ7TRCIUj6eICS90L8fkqHq10GhUXzVcqo'
     );
 
+    /* ⇢ CEK sesi: kalau belum login → redirect ke login.html */
     const { data:{ session } } = await supabase.auth.getSession();
-    if(!session){ window.location.replace("login.html"); }
-    window.supabaseClient = supabase;   // biar bisa dipakai script bawah
+    if (!session) window.location.replace('login.html');
+
+    /* fungsi logout */
+    async function doLogout(){
+      await supabase.auth.signOut();
+      localStorage.removeItem('supabase.auth.token'); /* bersihin token lokal */
+      window.location.replace('login.html');
+    }
+
+    /* tunggu DOM siap buat pasang listener */
+    window.addEventListener('DOMContentLoaded',()=>{
+      document.getElementById('logout-desktop').addEventListener('click',doLogout);
+      document.getElementById('logout-mobile').addEventListener('click',doLogout);
+    });
   </script>
 </head>
 <body>
 
-  <!-- ===== Overlay & Side-menu ===== -->
+  <!-- overlay & side-menu (mobile) -->
   <div class="overlay" id="overlay"></div>
   <nav class="side-menu" id="side-menu">
     <a href="#beranda">Beranda</a>
@@ -88,7 +86,7 @@
     <a href="#" id="logout-mobile" style="margin-top:24px;color:#ff6d6d"><i class="fas fa-sign-out-alt"></i> Logout</a>
   </nav>
 
-  <!-- ===== Header ===== -->
+  <!-- header desktop -->
   <header>
     <h1>Marshal</h1>
     <div class="nav-links">
@@ -104,7 +102,7 @@
     <button class="burger" id="burger"><i class="fas fa-bars"></i></button>
   </header>
 
-  <!-- ===== Hero ===== -->
+  <!-- HERO -->
   <section id="beranda" class="section hero">
     <div class="hero-text">
       <h2>Halo!</h2>
@@ -112,49 +110,38 @@
     </div>
   </section>
 
-  <!-- ===== Skills ===== -->
-  <section id="skills" class="section skills">
-    <h2>Skill Saya</h2>
-    <ul>
-      <li class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="">JavaScript</li>
-      <li class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="">NodeJS</li>
-      <li class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="">Python</li>
-      <li class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ruby/ruby-original.svg" alt="">Ruby</li>
-      <li class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="">C++</li>
-    </ul>
-  </section>
-
-  <!-- ===== Projects ===== -->
-  <section id="projek" class="section">
-    <h2>Projek Terbaru</h2>
-
-    <div class="project-card">
-      <h3>💻 Forum Luminar RP</h3>
-      <p>Forum SA-MP bertema gelap + UCP + rules aesthetic.</p>
-      <img src="https://raw.githubusercontent.com/sh6wm3/Portofolioo/main/file_00000000901061f7b28958c7bd95b3d7.png" alt="Forum Luminar RP">
+  <!-- SKILLS -->
+  <section id="skills" class="section">
+    <h3 style="font-size:24px;margin-bottom:16px">Skill Saya</h3>
+    <div class="skills-grid">
+      <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt=""><div>JavaScript</div></div>
+      <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt=""><div>Node.js</div></div>
+      <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt=""><div>Python</div></div>
+      <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ruby/ruby-original.svg" alt=""><div>Ruby</div></div>
+      <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt=""><div>C++</div></div>
     </div>
   </section>
 
-  <!-- ===== Script ===== -->
+  <!-- PROJEK -->
+  <section id="projek" class="section">
+    <h3 style="font-size:24px;margin-bottom:16px">Projek Forum SA-MP</h3>
+    <img class="projek-img" src="https://raw.githubusercontent.com/sh6wm3/Portofolioo/main/file_00000000901061f7b28958c7bd95b3d7.png" alt="Forum SA-MP">
+  </section>
+
+  <!-- SCRIPT UI -->
   <script>
-    /* Efek ketik */
-    const teks = "Nama gue Marshal. Gue bukan sekadar developer, tapi partner yang bantu lo wujudkan ide jadi realita digital. Dari sistem forum SA-MP, fitur dynamic, textdraw, hingga desain web profesional tiap project gue garap dengan totalitas.";
-    let idx=0; function ngetik(){ if(idx<teks.length){ document.querySelector('.typing-text').textContent+=teks.charAt(idx++); setTimeout(ngetik,20);} }
-    window.addEventListener('load',ngetik);
+    /* efek typing */
+    const text = "Nama gua Marshak. Gue bukan sekadar developer, tapi partner yang bantu lo wujudkan ide jadi realita digital. Dari sistem forum SA-MP, fitur dynamic, textdraw, hingga desain web profesional setiap project adalah tantangan yang gue hadapi dengan totalitas.";
+    let i = 0;
+    function type(){ if(i<text.length){document.querySelector('.typing-text').textContent += text.charAt(i++); setTimeout(type,20);} }
+    window.addEventListener('load',type);
 
-    /* Burger & overlay */
-    const burger = document.getElementById('burger'), side=document.getElementById('side-menu'), over=document.getElementById('overlay');
-    burger.onclick=()=>{side.classList.add('open');over.classList.add('show');};
-    over.onclick  =()=>{side.classList.remove('open');over.classList.remove('show');};
-
-    /* Logout – hapus session Supabase */
-    async function doLogout(){
-      await window.supabaseClient.auth.signOut();
-      localStorage.removeItem('supabase.auth.token');
-      location.replace('login.html');
-    }
-    document.getElementById('logout-desktop').onclick = doLogout;
-    document.getElementById('logout-mobile' ).onclick = doLogout;
+    /* burger */
+    const burger=document.getElementById('burger'),
+          side  =document.getElementById('side-menu'),
+          over  =document.getElementById('overlay');
+    burger.addEventListener('click',()=>{side.classList.add('open');over.classList.add('show');});
+    over  .addEventListener('click',()=>{side.classList.remove('open');over.classList.remove('show');});
   </script>
 </body>
 </html>
