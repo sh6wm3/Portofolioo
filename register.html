@@ -64,17 +64,12 @@
   <script>
     const supabase = window.supabase.createClient(
       'https://egawvajdbuxobbatzigt.supabase.co',
-      'sb-publishable-RCwXbT5eBBrB4pN67oNcoQ_wB7NJkU1'
+      'sb-publishable_RCwXbT5eBBrB4pN67oNcoQ_wB7NJkU1'
     );
 
     async function register() {
       const email = document.getElementById("email").value;
       const password = document.getElementById("password").value;
-
-      if (!email || !password) {
-        alert("Email dan password wajib diisi!");
-        return;
-      }
 
       const { data, error } = await supabase.auth.signUp({
         email,
