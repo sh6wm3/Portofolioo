@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <title>Login Akun</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     body {
       margin: 0;
@@ -15,6 +16,7 @@
       align-items: center;
       height: 100vh;
     }
+
     .form-container {
       background-color: #1c1c1c;
       padding: 32px;
@@ -22,11 +24,13 @@
       box-shadow: 0 0 20px rgba(168, 138, 221, 0.2);
       width: 320px;
     }
+
     h2 {
       margin-bottom: 20px;
       color: #a88add;
       text-align: center;
     }
+
     input, button {
       width: 100%;
       padding: 12px;
@@ -35,10 +39,12 @@
       border-radius: 6px;
       font-size: 1rem;
     }
+
     input {
       background-color: #2a2a2a;
       color: #fff;
     }
+
     button {
       background-color: #a88add;
       color: #fff;
@@ -46,20 +52,38 @@
       cursor: pointer;
       transition: background-color 0.3s ease;
     }
+
     button:hover {
       background-color: #7e6bc4;
+    }
+
+    .link {
+      text-align: center;
+      margin-top: 16px;
+    }
+
+    .link a {
+      color: #a88add;
+      text-decoration: none;
+    }
+
+    .link a:hover {
+      color: #7e6bc4;
     }
   </style>
 </head>
 <body>
   <div class="form-container">
-    <h2>Login Akun</h2>
+    <h2>Login</h2>
     <input type="email" id="email" placeholder="Email" required />
     <input type="password" id="password" placeholder="Password" required />
-    <button onclick="login()">Masuk</button>
+    <button onclick="login()">Login</button>
+    <div class="link">
+      Belum punya akun? <a href="register.html">Daftar di sini</a>
+    </div>
   </div>
 
-  <!-- Supabase JS SDK -->
+  <!-- Supabase JS -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
     const supabase = window.supabase.createClient(
@@ -71,7 +95,7 @@
       const email = document.getElementById("email").value.trim();
       const password = document.getElementById("password").value.trim();
 
-      const { error } = await supabase.auth.signInWithPassword({
+      const { data, error } = await supabase.auth.signInWithPassword({
         email,
         password
       });
@@ -79,7 +103,8 @@
       if (error) {
         alert("Gagal login: " + error.message);
       } else {
-        alert("Login berhasil!");
+        // Simpan session ke localStorage (opsional)
+        localStorage.setItem("supabase.auth.token", JSON.stringify(data.session));
         window.location.href = "index.html";
       }
     }
