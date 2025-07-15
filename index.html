@@ -2,10 +2,10 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Andra Marshal | Portofolio</title>
 
-  <!-- Font & Icon -->
+  <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
@@ -31,8 +31,8 @@
     }
 
     a {
-      text-decoration: none;
       color: var(--primary);
+      text-decoration: none;
     }
 
     a:hover {
@@ -51,8 +51,8 @@
     }
 
     header h1 {
-      color: #fff;
       font-size: 24px;
+      color: #fff;
     }
 
     .nav-links a {
@@ -122,22 +122,11 @@
       margin-top: 20px;
     }
 
-    .side-menu {
-      display: none;
-    }
-
-    .overlay {
-      display: none;
-    }
+    .side-menu, .overlay { display: none; }
 
     @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-      }
-
-      .burger {
-        display: block;
-      }
+      .nav-links { display: none; }
+      .burger { display: block; }
 
       .side-menu {
         display: flex;
@@ -153,9 +142,7 @@
         z-index: 1000;
       }
 
-      .side-menu.open {
-        right: 0;
-      }
+      .side-menu.open { right: 0; }
 
       .side-menu a {
         margin-bottom: 16px;
@@ -165,23 +152,43 @@
       .overlay {
         display: none;
         position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
+        inset: 0;
         background: rgba(0,0,0,0.6);
         z-index: 999;
       }
 
-      .overlay.show {
-        display: block;
-      }
+      .overlay.show { display: block; }
     }
   </style>
+
+  <!-- Supabase Auth (Fix) -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <script>
+    const supabase = supabase.createClient(
+      'https://egawvajdbuxobbatzigt.supabase.co',
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVnYXd2YWpkYnV4b2JiYXR6aWd0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTI1OTY5NTYsImV4cCI6MjA2ODE3Mjk1Nn0.UHSmEf4iOuJ7TRCIUj6eICS90L8fkqHq10GhUXzVcqo'
+    );
+
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      if (!session) window.location.replace("login.html");
+    });
+
+    async function doLogout() {
+      await supabase.auth.signOut();
+      localStorage.clear();
+      sessionStorage.clear();
+      window.location.replace("login.html");
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      document.getElementById("logout-desktop")?.addEventListener("click", doLogout);
+      document.getElementById("logout-mobile")?.addEventListener("click", doLogout);
+    });
+  </script>
 </head>
 <body>
 
-  <!-- Overlay & Side Menu -->
+  <!-- Side Menu & Overlay -->
   <div class="overlay" id="overlay"></div>
   <nav class="side-menu" id="side-menu">
     <a href="#beranda">Beranda</a>
@@ -236,58 +243,30 @@
     <img class="projek-img" src="https://raw.githubusercontent.com/sh6wm3/Portofolioo/main/file_00000000901061f7b28958c7bd95b3d7.png" alt="Forum SA-MP">
   </section>
 
-  <!-- Script -->
-  <script type="module">
-    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
-
-    const supabase = createClient(
-      'https://egawvajdbuxobbatzigt.supabase.co',
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVnYXd2YWpkYnV4b2JiYXR6aWd0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTI1OTY5NTYsImV4cCI6MjA2ODE3Mjk1Nn0.UHSmEf4iOuJ7TRCIUj6eICS90L8fkqHq10GhUXzVcqo'
-    );
-
-    const { data: { session } } = await supabase.auth.getSession();
-    if (!session) window.location.replace("login.html");
-
-    window.addEventListener("DOMContentLoaded", () => {
-      // Typing Effect
-      const text = "Nama gue Andra. Gue bukan sekadar developer, tapi partner yang bantu lo wujudkan ide jadi realita digital. Dari sistem forum SA-MP, fitur dynamic, textdraw, hingga desain web profesional — setiap project adalah tantangan yang gue hadapi dengan totalitas.";
-      let i = 0;
-      function type() {
-        if (i < text.length) {
-          document.querySelector(".typing-text").textContent += text.charAt(i++);
-          setTimeout(type, 20);
-        }
+  <!-- UI Script -->
+  <script>
+    const text = "Nama gue Andra. Gue bukan sekadar developer, tapi partner yang bantu lo wujudkan ide jadi realita digital. Dari sistem forum SA-MP, fitur dynamic, textdraw, hingga desain web profesional — setiap project adalah tantangan yang gue hadapi dengan totalitas.";
+    let i = 0;
+    function type() {
+      if (i < text.length) {
+        document.querySelector(".typing-text").textContent += text.charAt(i++);
+        setTimeout(type, 20);
       }
-      type();
+    }
+    window.addEventListener("load", type);
 
-      // Burger Menu
-      const burger = document.getElementById("burger"),
-            side = document.getElementById("side-menu"),
-            over = document.getElementById("overlay");
+    const burger = document.getElementById("burger"),
+          side = document.getElementById("side-menu"),
+          over = document.getElementById("overlay");
 
-      burger.addEventListener("click", () => {
-        side.classList.add("open");
-        over.classList.add("show");
-      });
+    burger.addEventListener("click", () => {
+      side.classList.add("open");
+      over.classList.add("show");
+    });
 
-      over.addEventListener("click", () => {
-        side.classList.remove("open");
-        over.classList.remove("show");
-      });
-
-      // Logout
-      async function doLogout() {
-        await supabase.auth.signOut();
-        localStorage.clear();
-        sessionStorage.clear();
-        document.cookie.split(";").forEach((c) => {
-          document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
-        });
-        window.location.href = "login.html";
-      }
-
-      document.getElementById("logout-desktop")?.addEventListener("click", doLogout);
-      document.getElementById("logout-mobile")?.addEventListener("click", doLogout);
+    over.addEventListener("click", () => {
+      side.classList.remove("open");
+      over.classList.remove("show");
     });
   </script>
 </body>
