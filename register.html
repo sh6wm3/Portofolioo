@@ -5,50 +5,20 @@
   <title>Daftar Akun</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-    body {
-      margin: 0;
-      font-family: 'Montserrat', sans-serif;
-      background-color: #0d111d;
-      color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-    .form-container {
-      background-color: #1c1c1c;
-      padding: 32px;
-      border-radius: 10px;
-      box-shadow: 0 0 20px rgba(168, 138, 221, 0.2);
-      width: 320px;
-    }
-    h2 {
-      margin-bottom: 20px;
-      color: #a88add;
-      text-align: center;
-    }
-    input, button {
-      width: 100%;
-      padding: 12px;
-      margin: 8px 0;
-      border: none;
-      border-radius: 6px;
-      font-size: 1rem;
-    }
-    input {
-      background-color: #2a2a2a;
-      color: #fff;
-    }
-    button {
-      background-color: #a88add;
-      color: #fff;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-    button:hover {
-      background-color: #7e6bc4;
-    }
+    body{
+      margin:0;font-family:'Montserrat',sans-serif;background:#0d111d;color:#fff;
+      display:flex;justify-content:center;align-items:center;height:100vh}
+    .form-container{
+      background:#1c1c1c;padding:32px;border-radius:10px;
+      box-shadow:0 0 20px rgba(168,138,221,.2);width:320px}
+    h2{margin-bottom:20px;color:#a88add;text-align:center}
+    input,button{width:100%;padding:12px;margin:8px 0;border:none;
+      border-radius:6px;font-size:1rem}
+    input{background:#2a2a2a;color:#fff}
+    button{
+      background:#a88add;color:#fff;font-weight:bold;cursor:pointer;
+      transition:.3s}
+    button:hover{background:#7e6bc4}
   </style>
 </head>
 <body>
@@ -62,25 +32,23 @@
   <!-- Supabase JS SDK -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
+    /* Ganti URL & key sesuai proyek Supabase-mu */
     const supabase = window.supabase.createClient(
       'https://egawvajdbuxobbatzigt.supabase.co',
-      'sb-publishable_RCwXbT5eBBrB4pN67oNcoQ_wB7NJkU1'
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVnYXd2YWpkYnV4b2JiYXR6aWd0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTI1OTY5NTYsImV4cCI6MjA2ODE3Mjk1Nn0.UHSmEf4iOuJ7TRCIUj6eICS90L8fkqHq10GhUXzVcqo'
     );
 
     async function register() {
-      const email = document.getElementById("email").value;
-      const password = document.getElementById("password").value;
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value.trim();
 
-      const { data, error } = await supabase.auth.signUp({
-        email,
-        password
-      });
+      const { error } = await supabase.auth.signUp({ email, password });
 
       if (error) {
-        alert("Gagal daftar: " + error.message);
+        alert('Gagal daftar: ' + error.message);
       } else {
-        alert("Registrasi berhasil! Silakan login.");
-        window.location.href = "login.html";
+        alert('Registrasi berhasil! Silakan login.');
+        window.location.href = 'login.html';
       }
     }
   </script>
