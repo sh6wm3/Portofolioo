@@ -2,97 +2,85 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Login - Andra Marshal</title>
+  <title>Login Akun</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #0d111d;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #0d111d;
       color: #fff;
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
       height: 100vh;
     }
-    .login-box {
-      background: #1c1c1c;
-      padding: 40px;
+    .form-container {
+      background-color: #1c1c1c;
+      padding: 32px;
       border-radius: 10px;
-      box-shadow: 0 0 10px #a88add40;
-      max-width: 360px;
-      width: 100%;
+      box-shadow: 0 0 20px rgba(168, 138, 221, 0.2);
+      width: 320px;
     }
     h2 {
-      text-align: center;
-      margin-bottom: 28px;
+      margin-bottom: 20px;
       color: #a88add;
+      text-align: center;
     }
-    input {
+    input, button {
       width: 100%;
       padding: 12px;
-      margin: 10px 0;
+      margin: 8px 0;
       border: none;
       border-radius: 6px;
-      background: #2a2a2a;
+      font-size: 1rem;
+    }
+    input {
+      background-color: #2a2a2a;
       color: #fff;
     }
     button {
-      width: 100%;
-      padding: 12px;
-      background: #a88add;
-      border: none;
+      background-color: #a88add;
       color: #fff;
       font-weight: bold;
-      border-radius: 6px;
       cursor: pointer;
-      margin-top: 16px;
-      transition: background 0.3s ease;
+      transition: background-color 0.3s ease;
     }
     button:hover {
-      background: #7e6bc4;
-    }
-    .note {
-      text-align: center;
-      margin-top: 16px;
-      font-size: 14px;
-    }
-    .note a {
-      color: #a88add;
-      text-decoration: none;
+      background-color: #7e6bc4;
     }
   </style>
 </head>
 <body>
-  <div class="login-box">
+  <div class="form-container">
     <h2>Login Akun</h2>
     <input type="email" id="email" placeholder="Email" required />
     <input type="password" id="password" placeholder="Password" required />
     <button onclick="login()">Masuk</button>
-    <div class="note">Belum punya akun? <a href="register.html">Daftar disini</a></div>
   </div>
 
+  <!-- Supabase JS SDK -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
-    const supabase = supabase.createClient(
+    const supabase = window.supabase.createClient(
       'https://egawvajdbuxobbatzigt.supabase.co',
-      'fwwmncptsctxxxkipqtm'
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVnYXd2YWpkYnV4b2JiYXR6aWd0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTI1OTY5NTYsImV4cCI6MjA2ODE3Mjk1Nn0.UHSmEf4iOuJ7TRCIUj6eICS90L8fkqHq10GhUXzVcqo'
     );
 
     async function login() {
-      const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
 
-      const { data, error } = await supabase.auth.signInWithPassword({
+      const { error } = await supabase.auth.signInWithPassword({
         email,
         password
       });
 
       if (error) {
-        alert('Gagal login: ' + error.message);
+        alert("Gagal login: " + error.message);
       } else {
-        // Berhasil login, redirect ke halaman utama
-        window.location.href = 'index.html';
+        alert("Login berhasil!");
+        window.location.href = "index.html";
       }
     }
   </script>
