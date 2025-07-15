@@ -1,194 +1,230 @@
-<!DOCTYPE html>
-<html lang="id">
+<!DOCTYPE html><html lang="id">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Andra Marshal | Portofolio</title>
-
-  <!-- Montserrat & Font Awesome -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-  <!-- Suara klik-bintang -->
-  <audio id="click-sound" src="https://cdn.pixabay.com/audio/2022/03/15/audio_841b95f7b6.mp3"></audio>
-
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
-    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-    :root{scroll-behavior:smooth}
-
-    body{font-family:'Montserrat',sans-serif;background:#0e0e0e;color:#fff}
-
-    /* ---------- Header ---------- */
-    header{
-      background:#0e0e0e;border-bottom:1px solid #222;padding:18px 32px;
-      position:sticky;top:0;z-index:1000;display:flex;align-items:center;justify-content:space-between}
-    header h1{color:#ff0055;font-size:1.6rem;letter-spacing:.5px}
-    .nav-links a{color:#fff;text-decoration:none;margin-left:24px;font-weight:600;transition:.3s}
-    .nav-links a:hover{color:#ff0055}
-
-    /* ---------- Hamburger + Side-menu ---------- */
-    .burger{display:none;font-size:1.8rem;color:#ff0055;background:none;border:none;cursor:pointer}
-    .side-menu{
-      position:fixed;top:0;right:-260px;width:260px;height:100vh;background:#0e0e0e;
-      box-shadow:-4px 0 10px rgba(0,0,0,.5);transition:.35s;padding:80px 24px;z-index:999}
-    .side-menu a{display:block;margin:16px 0;color:#fff;font-weight:600;text-decoration:none}
-    .side-menu.open{right:0}
-    .overlay{
-      position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(2px);
-      opacity:0;pointer-events:none;transition:.35s;z-index:998}
-    .overlay.show{opacity:1;pointer-events:all}
-
-    /* ---------- Layout helper ---------- */
-    .section{padding:80px 40px;max-width:1100px;margin-inline:auto}
-    .btn{display:inline-block;padding:12px 28px;background:#ff0055;border-radius:8px;
-      color:#fff;text-decoration:none;font-weight:700;margin-top:28px;transition:.25s}
-    .btn:hover{background:#ff3366}
-
-    /* ---------- Hero ---------- */
-    .hero{display:flex;flex-direction:column;align-items:center;text-align:center;
-      gap:32px;min-height:70vh;justify-content:center;
-      background:linear-gradient(#ffffff 0%, #e1f0ff 100%)}
-    .hero h2{font-size:3rem;color:#ff0055;margin-bottom:10px}
-    .typing-text{font-size:1.05rem;line-height:1.8;min-height:120px;white-space:pre-wrap;color:#111}
-
-    /* ---------- About ---------- */
-    .about{background:#0e0e0e}
-    .about h2{color:#ff0055;margin-bottom:16px}
-    .about p{max-width:700px;line-height:1.7}
-
-    /* ---------- Skills ---------- */
-    .skills{background:#101523}
-    .skills h2{color:#3ba2ff;margin-bottom:28px;text-align:center}
-    .skills ul{
-      list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
-      gap:18px;padding:0}
-    .skill-item{
-      background:#1b2337;border-left:4px solid #3ba2ff;padding:14px 16px;border-radius:8px;
-      display:flex;align-items:center;gap:10px;font-size:.95rem;font-weight:600}
-    .skill-item img{width:28px;height:28px}
-
-    /* ---------- Projects ---------- */
-    .projects{background:#0e0e0e}
-    .projects h2{color:#ff0055;margin-bottom:28px;text-align:center}
-    .project-card{
-      background:#1c1c1c;padding:20px;border-radius:10px;margin:24px 0;
-      border-left:4px solid #ff0055}
-    .project-card img{width:100%;border-radius:8px;margin-top:12px}
-
-    /* ---------- Contact CTA ---------- */
-    .contact{background:#101523;text-align:center}
-    .contact h2{color:#3ba2ff;margin-bottom:16px}
-
-    /* ---------- Click-star ---------- */
-    .click-star{position:fixed;font-size:24px;color:#ff0055;pointer-events:none;
-      animation:explode 1s ease-out forwards;z-index:9999}
-    @keyframes explode{from{opacity:1;transform:scale(1) translateY(0)}
-                       to{opacity:0;transform:scale(2) translateY(-50px)}}
-
-    /* ---------- Responsive ---------- */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #0c101a;
+      color: #ffffff;
+      scroll-behavior: smooth;
+    }
+    header {
+      background: #101522;
+      padding: 20px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+    header h1 {
+      font-size: 1.5rem;
+      color: #61dafb;
+    }
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 24px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    .nav-links a:hover {
+      color: #61dafb;
+    }
+    .burger {
+      display: none;
+      font-size: 1.8rem;
+      color: #fff;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+    .side-menu {
+      position: fixed;
+      top: 0;
+      right: -260px;
+      width: 260px;
+      height: 100vh;
+      background: #101522;
+      padding: 80px 24px;
+      transition: .35s;
+      z-index: 999;
+    }
+    .side-menu a {
+      display: block;
+      color: #fff;
+      margin: 16px 0;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .side-menu.open {
+      right: 0;
+    }
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(2px);
+      opacity: 0;
+      pointer-events: none;
+      transition: .35s;
+      z-index: 998;
+    }
+    .overlay.show {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .section {
+      padding: 80px 40px;
+      max-width: 1100px;
+      margin-inline: auto;
+    }
+    .hero {
+      text-align: center;
+      padding-top: 80px;
+    }
+    .hero h2 {
+      font-size: 2.8rem;
+      color: #61dafb;
+    }
+    .typing-text {
+      font-size: 1.1rem;
+      margin-top: 12px;
+      white-space: pre-wrap;
+      min-height: 120px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 28px;
+      background: #61dafb;
+      border-radius: 8px;
+      color: #0c101a;
+      font-weight: 700;
+      margin-top: 28px;
+      text-decoration: none;
+    }
+    .btn:hover {
+      background: #4ec0e9;
+    }
+    .skills ul {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 16px;
+      padding: 0;
+    }
+    .skill-item {
+      background: #151d2e;
+      padding: 14px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .skill-item:hover {
+      transform: scale(1.05);
+    }
+    .skill-item img {
+      width: 28px;
+      height: 28px;
+    }
+    .project-card {
+      background: #151d2e;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 24px;
+      border-left: 4px solid #61dafb;
+      color: #ffffff;
+    }
+    .project-card img {
+      width: 100%;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
     @media(max-width:768px){
-      .burger{display:block}
-      .nav-links{display:none}
-      .hero h2{font-size:2.4rem}
+      .burger {display: block;}
+      .nav-links {display: none;}
     }
   </style>
 </head>
 <body>
-
-  <!-- Overlay + Side-menu -->
   <div class="overlay" id="overlay"></div>
   <nav class="side-menu" id="side-menu">
     <a href="#beranda">Beranda</a>
     <a href="#skills">Skill</a>
-    <a href="#projects">Forum SA-MP</a>
+    <a href="#projek">Projek</a>
+    <a href="cv.html">CV</a>
     <a href="jasa-developer.html">Jasa Dev</a>
     <a href="hosting.html">Hosting</a>
-    <a href="cv.html">CV</a>
     <a href="contact.html">Kontak</a>
   </nav>
-
-  <!-- Header -->
   <header>
     <h1>Marshal</h1>
     <div class="nav-links">
       <a href="#beranda">Beranda</a>
       <a href="#skills">Skill</a>
-      <a href="#projects">Forum SA-MP</a>
+      <a href="#projek">Projek</a>
+      <a href="cv.html">CV</a>
       <a href="jasa-developer.html">Jasa Dev</a>
       <a href="hosting.html">Hosting</a>
-      <a href="cv.html">CV</a>
       <a href="contact.html">Kontak</a>
     </div>
     <button class="burger" id="burger"><i class="fas fa-bars"></i></button>
-  </header>
-
-  <!-- Hero -->
-  <section id="beranda" class="section hero">
-    <div class="hero-text">
-      <h2>Halo, Saya Andra!</h2>
-      <p class="typing-text"></p>
-      <a href="cv.html" class="btn">Lihat CV Saya</a>
-    </div>
-  </section>
-
-  <!-- About -->
-  <section class="section about">
-    <h2>Tentang Saya</h2>
-    <p>Saya developer berfokus pada efisiensi, kreativitas, dan teknologi. Berpengalaman membuat
-       forum & UC​P SA-MP, automasi server, serta website statis cepat dan responsif.</p>
-  </section>
-
-  <!-- Skills -->
-  <section id="skills" class="section skills">
-    <h2>Skill Coding</h2>
+  </header>  <section id="beranda" class="section hero">
+    <h2>Halo Gua Andra</h2>
+    <p class="typing-text"></p>
+    <a href="cv.html" class="btn">Lihat CV Saya</a>
+  </section>  <section id="skills" class="section skills">
+    <h2>Skill Saya</h2>
     <ul>
-      <li class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg">Python</li>
-      <li class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg">JavaScript</li>
-      <li class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg">C++</li>
-      <li class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg">Node.js</li>
-      <li class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ruby/ruby-original.svg">Ruby</li>
+      <li class="skill-item" onclick="alert('Python')"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">Python</li>
+      <li class="skill-item" onclick="alert('JavaScript')"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JS">JavaScript</li>
+      <li class="skill-item" onclick="alert('C++')"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++">C++</li>
+      <li class="skill-item" onclick="alert('NodeJs')"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node">NodeJs</li>
+      <li class="skill-item" onclick="alert('Ruby')"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ruby/ruby-original.svg" alt="Ruby">Ruby</li>
     </ul>
-  </section>
-
-  <!-- Projects -->
-  <section id="projects" class="section projects">
+  </section>  <section id="projek" class="section">
     <h2>Forum SA-MP (Preview)</h2>
-
     <div class="project-card">
-      <strong>💻 Forum Luminar RP</strong><br>
-      Tampilan forum SA-MP bertema gelap + UCP + rules aesthetic.<br>
-      <img src="https://raw.githubusercontent.com/sh6wm3/Marshalweb/main/file_00000000901061f7b28958c7bd95b3d7.png"
-           alt="Forum Luminar RP">
+      <h3>💻 Forum Luminar RP</h3>
+      <p>Tampilan forum SA-MP bertema gelap + UCP + rules aesthetic.</p>
+      <img src="https://raw.githubusercontent.com/sh6wm3/Portofolioo/main/assets/forum-samp.jpg" alt="Forum SA-MP" />
     </div>
-  </section>
+  </section>  <script>
+    const text = "Barista yang terlatih dalam konsistensi & kesabaran, kini menjadi developer yang fokus pada efisiensi, kreativitas, dan scripting SA-MP.";
+    let i = 0;
+    function type() {
+      if (i < text.length) {
+        document.querySelector('.typing-text').textContent += text.charAt(i++);
+        setTimeout(type, 20);
+      }
+    }
+    window.addEventListener('load', type);
 
-  <!-- Contact CTA -->
-  <section class="section contact">
-    <h2>Kontak Saya</h2>
-    <p>Siap berkolaborasi? Klik tombol di bawah:</p>
-    <a href="contact.html" class="btn"><i class="fas fa-paper-plane" style="margin-right:6px"></i>Hubungi Saya</a>
-  </section>
+    const burger = document.getElementById('burger');
+    const side = document.getElementById('side-menu');
+    const over = document.getElementById('overlay');
 
-  <!-- Script -->
-  <script>
-    /* Typing */
-    const text="Seorang Barista yang terlatih dalam kesabaran, kini menjelma menjadi Developer fokus efisiensi & kreativitas.\n\nAktif membangun sistem interaktif dan scripting GTA SA-MP.\n\nKeahlian bukan hanya apa yang kita tahu, tetapi bagaimana kita terus berkembang.";
-    let i=0; function type(){ if(i<text.length){document.querySelector('.typing-text').textContent+=text.charAt(i++);setTimeout(type,20);} }
-    window.addEventListener('load',type);
-
-    /* Star click + sound */
-    document.addEventListener('click',e=>{
-      const s=document.createElement('div');s.className='click-star';s.textContent='★';
-      s.style.left=`${e.pageX}px`;s.style.top=`${e.pageY}px`;document.body.appendChild(s);
-      document.getElementById('click-sound').play();setTimeout(()=>s.remove(),1000);
+    burger.addEventListener('click', () => {
+      side.classList.add('open');
+      over.classList.add('show');
     });
-
-    /* Burger */
-    const burger=document.getElementById('burger');
-    const side=document.getElementById('side-menu');
-    const over=document.getElementById('overlay');
-    burger.addEventListener('click',()=>{side.classList.add('open');over.classList.add('show');});
-    over.addEventListener('click',()=>{side.classList.remove('open');over.classList.remove('show');});
-  </script>
-</body>
+    over.addEventListener('click', () => {
+      side.classList.remove('open');
+      over.classList.remove('show');
+    });
+  </script></body>
 </html>
