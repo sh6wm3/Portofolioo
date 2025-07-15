@@ -6,7 +6,7 @@
   <title>Andra Marshal | Portofolio</title>
 
   <!-- Font & Icon -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
   <style>
@@ -18,42 +18,28 @@
     }
     *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
     body{font-family:'Montserrat',sans-serif;background:var(--bg);color:#fff}
-    a{color:var(--primary);text-decoration:none}
-    a:hover{color:var(--hover)}
-
-    /* ===== HEADER ===== */
-    header{display:flex;justify-content:space-between;align-items:center;
-           padding:20px 40px;background:var(--navy-soft);position:sticky;top:0;z-index:999}
+    a{color:var(--primary);text-decoration:none}a:hover{color:var(--hover)}
+    header{display:flex;justify-content:space-between;align-items:center;padding:20px 40px;
+           background:var(--navy-soft);position:sticky;top:0;z-index:999}
     header h1{font-size:24px;color:#fff}
     .nav-links a{margin-left:24px;font-weight:bold}
-
     .burger{display:none;font-size:24px;color:#fff;background:none;border:none;cursor:pointer}
-
-    /* ===== LAYOUT ===== */
     .section{padding:80px 20px;max-width:1000px;margin:auto}
-
-    /* hero */
     .hero{display:flex;flex-direction:column;align-items:center;text-align:center}
     .hero-text h2{font-size:36px;margin-bottom:16px}
     .typing-text{font-style:italic;font-size:18px;color:#ccc;max-width:700px}
-
-    /* skills */
     .skills-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:20px;margin-top:40px}
     .skill-card{background:#161a2d;padding:20px;border-radius:12px;width:120px;text-align:center}
     .skill-card img{width:48px;margin-bottom:12px}
-
-    /* projek */
     .projek-img{width:100%;max-width:600px;border-radius:12px;margin-top:20px}
 
-    /* side-menu */
+    /* side-menu & overlay (mobile) */
     .side-menu,.overlay{display:none}
     @media(max-width:768px){
-      .nav-links{display:none}
-      .burger{display:block}
+      .nav-links{display:none}.burger{display:block}
       .side-menu{display:flex;flex-direction:column;position:fixed;top:0;right:-250px;width:200px;
-                 background:var(--navy-soft);height:100vh;padding:20px;transition:right .3s ease;z-index:1000}
-      .side-menu.open{right:0}
-      .side-menu a{margin-bottom:16px;font-weight:bold}
+                 background:var(--navy-soft);height:100vh;padding:20px;transition:right .3s;z-index:1000}
+      .side-menu.open{right:0}.side-menu a{margin-bottom:16px;font-weight:bold}
       .overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:999}
       .overlay.show{display:block}
     }
@@ -61,23 +47,9 @@
 </head>
 <body>
 
-<!-- overlay & side-menu (mobile) -->
-<div class="overlay" id="overlay"></div>
-<nav class="side-menu" id="side-menu">
-  <a href="#beranda">Beranda</a>
-  <a href="#skills">Skill</a>
-  <a href="#projek">Projek</a>
-  <a href="cv.html">CV</a>
-  <a href="jasa-developer.html">Jasa Dev</a>
-  <a href="hosting.html">Hosting</a>
-  <a href="contact.html">Kontak</a>
-  <a href="#" id="logout-mobile" style="margin-top:24px;color:#ff6d6d"><i class="fas fa-sign-out-alt"></i> Logout</a>
-</nav>
-
-<!-- header desktop -->
-<header>
-  <h1>Marshal</h1>
-  <div class="nav-links">
+  <!-- overlay & side-menu (mobile) -->
+  <div class="overlay" id="overlay"></div>
+  <nav class="side-menu" id="side-menu">
     <a href="#beranda">Beranda</a>
     <a href="#skills">Skill</a>
     <a href="#projek">Projek</a>
@@ -85,81 +57,93 @@
     <a href="jasa-developer.html">Jasa Dev</a>
     <a href="hosting.html">Hosting</a>
     <a href="contact.html">Kontak</a>
-    <a href="#" id="logout-desktop" style="margin-left:24px;color:#ff6d6d"><i class="fas fa-sign-out-alt"></i> Logout</a>
-  </div>
-  <button class="burger" id="burger"><i class="fas fa-bars"></i></button>
-</header>
+    <a href="#" id="logout-mobile" style="margin-top:24px;color:#ff6d6d"><i class="fas fa-sign-out-alt"></i> Logout</a>
+  </nav>
 
-<!-- HERO -->
-<section id="beranda" class="section hero">
-  <div class="hero-text">
-    <h2>Halo!</h2>
-    <p class="typing-text"></p>
-  </div>
-</section>
+  <!-- HEADER desktop -->
+  <header>
+    <h1>Marshal</h1>
+    <div class="nav-links">
+      <a href="#beranda">Beranda</a>
+      <a href="#skills">Skill</a>
+      <a href="#projek">Projek</a>
+      <a href="cv.html">CV</a>
+      <a href="jasa-developer.html">Jasa Dev</a>
+      <a href="hosting.html">Hosting</a>
+      <a href="contact.html">Kontak</a>
+      <a href="#" id="logout-desktop" style="margin-left:24px;color:#ff6d6d"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </div>
+    <button class="burger" id="burger"><i class="fas fa-bars"></i></button>
+  </header>
 
-<!-- SKILLS -->
-<section id="skills" class="section">
-  <h3 style="font-size:24px;margin-bottom:16px">Skill Saya</h3>
-  <div class="skills-grid">
-    <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt=""><div>JavaScript</div></div>
-    <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt=""><div>Node.js</div></div>
-    <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt=""><div>Python</div></div>
-    <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ruby/ruby-original.svg" alt=""><div>Ruby</div></div>
-    <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt=""><div>C++</div></div>
-  </div>
-</section>
+  <!-- HERO -->
+  <section id="beranda" class="section hero">
+    <div class="hero-text">
+      <h2>Halo Gua Andra!</h2>
+      <p class="typing-text"></p>
+    </div>
+  </section>
 
-<!-- PROJEK -->
-<section id="projek" class="section">
-  <h3 style="font-size:24px;margin-bottom:16px">Projek Forum SA-MP</h3>
-  <img class="projek-img" src="https://raw.githubusercontent.com/sh6wm3/Portofolioo/main/file_00000000901061f7b28958c7bd95b3d7.png" alt="Forum SA-MP">
-</section>
+  <!-- SKILLS -->
+  <section id="skills" class="section">
+    <h3 style="font-size:24px;margin-bottom:16px">Skill Saya</h3>
+    <div class="skills-grid">
+      <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt=""><div>JavaScript</div></div>
+      <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt=""><div>Node.js</div></div>
+      <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt=""><div>Python</div></div>
+      <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ruby/ruby-original.svg" alt=""><div>Ruby</div></div>
+      <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt=""><div>C++</div></div>
+    </div>
+  </section>
 
-<!-- ===== Supabase & Logic (NON-module, fix logout) ===== -->
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-<script>
-  /* --- init supabase --- */
-  const supabase = supabase_js.createClient(
-    'https://egawvajdbuxobbatzigt.supabase.co',
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVnYXd2YWpkYnV4b2JiYXR6aWd0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTI1OTY5NTYsImV4cCI6MjA2ODE3Mjk1Nn0.UHSmEf4iOuJ7TRCIUj6eICS90L8fkqHq10GhUXzVcqo'
-  );
+  <!-- PROJEK -->
+  <section id="projek" class="section">
+    <h3 style="font-size:24px;margin-bottom:16px">Projek Forum SA-MP</h3>
+    <img class="projek-img" src="https://raw.githubusercontent.com/sh6wm3/Portofolioo/main/file_00000000901061f7b28958c7bd95b3d7.png" alt="Forum SA-MP">
+  </section>
 
-  /* --- proteksi: kalau belum login, lempar ke login.html --- */
-  supabase.auth.getSession().then(({ data: { session } })=>{
-    if(!session) window.location.replace('login.html');
-  });
+  <!-- SUPABASE CDN (non-module) & LOGOUT -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <script>
+    /* ---------- Supabase ---------- */
+    const supabase = supabase_js.createClient(
+      'https://egawvajdbuxobbatzigt.supabase.co',
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVnYXd2YWpkYnV4b2JiYXR6aWd0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTI1OTY5NTYsImV4cCI6MjA2ODE3Mjk1Nn0.UHSmEf4iOuJ7TRCIUj6eICS90L8fkqHq10GhUXzVcqo'
+    );
 
-  /* --- fungsi logout --- */
-  async function doLogout(){
-    await supabase.auth.signOut();    // revoke sesi server
-    localStorage.clear();             // hapus semua token browser
-    sessionStorage.clear();
-    document.cookie.split(';').forEach(c=>{
-      document.cookie = c.replace(/^ +/,'').replace(/=.*/,'=;expires='+new Date().toUTCString()+';path=/');
+    /* proteksi – kalau belum login, lempar ke login.html */
+    supabase.auth.getSession().then(({ data: { session } })=>{
+      if(!session) window.location.replace('login.html');
     });
-    window.location.href = 'login.html';
-  }
 
-  /* pasang listener sesudah DOM ready */
-  document.addEventListener('DOMContentLoaded',()=>{
-    document.getElementById('logout-desktop').addEventListener('click',doLogout);
-    document.getElementById('logout-mobile' ).addEventListener('click',doLogout);
-  });
+    /* fungsi logout */
+    async function doLogout(){
+      await supabase.auth.signOut();          // clear session di Supabase
+      localStorage.clear(); sessionStorage.clear();
+      document.cookie.split(';').forEach(c=>{
+        document.cookie = c.replace(/^ +/,'').replace(/=.*/,'=;expires='+new Date().toUTCString()+';path=/');
+      });
+      window.location.href='login.html';
+    }
 
-  /* === UI === */
-  /* typing effect */
-  const text = "Nama gua Marshal. Gue bukan sekedar developer, tapi partner yang bantu lu wujudkan ide jadi realita digital. Dari sistem forum SA-MP, fitur dynamic, textdraw, hingga desain web profesional — setiap project adalah tantangan yang gue hadapi dengan totalitas.";
-  let idx=0;
-  function type(){ if(idx<text.length){ document.querySelector('.typing-text').textContent += text.charAt(idx++); setTimeout(type,20);} }
-  window.addEventListener('load',type);
+    /* pasang listener setelah DOM siap */
+    document.addEventListener('DOMContentLoaded',()=>{
+      document.getElementById('logout-desktop').addEventListener('click',doLogout);
+      document.getElementById('logout-mobile' ).addEventListener('click',doLogout);
+    });
 
-  /* burger */
-  const burger=document.getElementById('burger'),
-        side  =document.getElementById('side-menu'),
-        over  =document.getElementById('overlay');
-  burger.addEventListener('click',()=>{side.classList.add('open');over.classList.add('show');});
-  over  .addEventListener('click',()=>{side.classList.remove('open');over.classList.remove('show');});
-</script>
+    /* ---------- UI kecil ---------- */
+    const text="Nama gue Andra. Gue bukan sekadar developer, tapi partner yang bantu lo wujudkan ide jadi realita digital. Dari sistem forum SA-MP, fitur dynamic, textdraw, hingga desain web profesional—setiap project adalah tantangan yang gue hadapi dengan totalitas.";
+    let i=0;
+    function type(){ if(i<text.length){ document.querySelector('.typing-text').textContent += text.charAt(i++); setTimeout(type,20); } }
+    window.addEventListener('load',type);
+
+    /* burger */
+    const burger=document.getElementById('burger'),
+          side  =document.getElementById('side-menu'),
+          over  =document.getElementById('overlay');
+    burger.addEventListener('click',()=>{side.classList.add('open');over.classList.add('show');});
+    over  .addEventListener('click',()=>{side.classList.remove('open');over.classList.remove('show');});
+  </script>
 </body>
 </html>
