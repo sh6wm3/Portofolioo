@@ -2,81 +2,167 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CV — Andra Marshal</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CV Andra Marshal</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <style>
-    body {
-      background: #0d111d;
-      color: #fff;
-      font-family: 'Montserrat', sans-serif;
-      line-height: 1.6;
-      padding: 40px;
-      max-width: 800px;
-      margin: auto;
+    :root {
+      --primary: #a88add;
+      --hover: #7e6bc4;
+      --bg: #0d111d;
+      --soft: #1a1f30;
     }
-    h1, h2, h3 { margin-bottom: 16px; color: #a88add; }
-    ul { margin-left: 20px; margin-bottom: 24px; }
+
+    body {
+      font-family: sans-serif;
+      background: var(--bg);
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      padding: 20px;
+      text-align: center;
+      background: var(--soft);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 28px;
+      color: var(--primary);
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    .foto-profil {
+      text-align: center;
+    }
+
+    .foto-profil img {
+      width: 160px;
+      border-radius: 50%;
+      border: 3px solid var(--primary);
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      color: var(--primary);
+      margin-top: 40px;
+      border-bottom: 2px solid var(--soft);
+      padding-bottom: 6px;
+    }
+
+    ul {
+      padding-left: 20px;
+      line-height: 1.8;
+    }
+
     .skill-bar {
-      background: #161a2d;
+      margin-bottom: 20px;
+    }
+
+    .skill-bar label {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .progress {
+      background: #333;
       border-radius: 8px;
       overflow: hidden;
-      margin-bottom: 12px;
     }
-    .skill-bar span {
-      display: block;
-      height: 16px;
-      background: #7e6bc4;
+
+    .progress div {
+      height: 14px;
+      background: var(--primary);
+      text-align: right;
+      padding-right: 5px;
+      font-size: 12px;
+      line-height: 14px;
+      color: #fff;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 40px;
+      color: var(--primary);
+      border: 1px solid var(--primary);
+      padding: 8px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .back-link:hover {
+      background: var(--primary);
+      color: #fff;
     }
   </style>
 </head>
 <body>
 
-  <h1>Andra Marshal</h1>
-  <h2>Pengalaman Kerja</h2>
-  <ul>
-    <li>Yukscoffe: 6 Bulan (Barista)</li>
-    <li>Jack Coffe: 1 Tahun (Barista)</li>
-    <li>Kopisoe: 1 Tahun (Head Barista)</li>
-    <li>Giardino Cafe: 1,3 Tahun (Barista)</li>
-    <li>Varuna Cafe: 8 Bulan (Barista)</li>
-    <li>Black Beans Cafe: 1 Tahun (Head Barista)</li>
-  </ul>
-  <p><strong>Start a Barista: 2017 – 2025</strong></p>
+  <header>
+    <h1>Curriculum Vitae - Andra Marshal</h1>
+  </header>
 
-  <h2>Soft Skill</h2>
-  <ul>
-    <li>Sangat disiplin saat bekerja</li>
-    <li>Bisa bekerja dalam tim (teamwork)</li>
-    <li>Jujur & rajin</li>
-    <li>Selalu mematuhi SOP perusahaan</li>
-  </ul>
+  <div class="container">
+    <div class="foto-profil">
+      <img src="https://raw.githubusercontent.com/sh6wm3/Portofolioo/main/Screenshot_20250708-053511.jpg" alt="Foto Andra">
+    </div>
 
-  <h2>Skill Teknikal</h2>
-  <div>
-    <p>Latte Art (80%)</p>
-    <div class="skill-bar"><span style="width: 80%;"></span></div>
-    <p>Manual Brewing (65%)</p>
-    <div class="skill-bar"><span style="width: 65%;"></span></div>
-    <p>Teamwork (90%)</p>
-    <div class="skill-bar"><span style="width: 90%;"></span></div>
+    <h2>Pengalaman Kerja</h2>
+    <ul>
+      <li>☕ Start a Barista (2017 - 2025)</li>
+      <li>Yukscoffe: 6 Bulan (Barista)</li>
+      <li>Jack Coffee: 1 Tahun (Barista)</li>
+      <li>Kopisoe: 1 Tahun (Head Barista)</li>
+      <li>Giardino Cafe: 1,3 Tahun (Barista)</li>
+      <li>Varuna Cafe: 8 Bulan (Barista)</li>
+      <li>Black Beans Cafe: 1 Tahun (Head Barista)</li>
+    </ul>
+
+    <h2>Soft Skill & Nilai Kerja</h2>
+    <ul>
+      <li>✅ Selalu mengutamakan kedisiplinan dalam bekerja.</li>
+      <li>🤝 Mampu bekerja dalam tim (teamwork).</li>
+      <li>💯 Jujur dan rajin adalah prioritas utama.</li>
+      <li>📋 Selalu mematuhi SOP perusahaan.</li>
+    </ul>
+
+    <h2>About Work & Coffee</h2>
+    <ul>
+      <li>🎯 Terbiasa memberikan ide kreatif dalam meracik kopi.</li>
+      <li>🚀 Selalu terbuka untuk hal baru dan belajar lebih dalam soal kopi.</li>
+      <li>🎨 Mengembangkan kemampuan Latte Art & Manual Brewing secara bertahap.</li>
+      <li>🔬 Teliti dalam menjaga kualitas rasa makanan/minuman untuk pelanggan.</li>
+      <li>🛠 Cek rutin mesin kopi saat opening dan closing toko.</li>
+    </ul>
+
+    <h2>Skill Saya</h2>
+    <div class="skill-bar">
+      <label>Latte Art</label>
+      <div class="progress"><div style="width: 80%">80%</div></div>
+    </div>
+    <div class="skill-bar">
+      <label>Manual Brewing</label>
+      <div class="progress"><div style="width: 65%">65%</div></div>
+    </div>
+    <div class="skill-bar">
+      <label>Teamwork</label>
+      <div class="progress"><div style="width: 90%">90%</div></div>
+    </div>
+
+    <p style="margin-top: 40px; font-style: italic; color: #ccc;">
+      Saya percaya bahwa setiap cangkir kopi adalah seni dan tanggung jawab. Dedikasi, konsistensi, dan semangat belajar adalah nilai yang selalu saya bawa dalam perjalanan profesional saya.
+    </p>
+
+    <a class="back-link" href="index.html"><i class="fas fa-arrow-left"></i> Kembali ke Beranda</a>
   </div>
-
-  <h2>About 🍵 Coffee Work</h2>
-  <ul>
-    <li>Mampu meracik coffee & memberikan ide menu</li>
-    <li>Suka belajar hal baru seputar coffee</li>
-    <li>Latte art & manual brewing terus dikembangkan</li>
-    <li>Teliti terhadap rasa & kualitas makanan/minuman</li>
-    <li>Selalu mengecek mesin coffee saat opening & closing</li>
-  </ul>
-
-  <h2>Profil Foto</h2>
-  <img src="https://raw.githubusercontent.com/sh6wm3/Portofolioo/main/Screenshot_20250708-053511.jpg" alt="Foto Profil" style="max-width:200px; border-radius:12px;"/>
-
-  <p style="margin-top:32px;">“Dengan pengalaman matang sebagai barista sekaligus keahlian teknikal dalam pengembangan aplikasi dan forum SA-MP, saya siap menjadi partner digital yang andal untuk wujudkan ide kamu jadi kenyataan.”</p>
-
-  <p><a href="index.html" style="color:#a88add; font-weight:bold;">← Kembali ke Portofolio</a></p>
 
 </body>
 </html>
