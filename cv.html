@@ -1,173 +1,128 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CV • Marshal</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV Andra Marshal</title>
   <style>
     :root {
       --primary: #a88add;
       --hover: #7e6bc4;
       --bg: #0d111d;
-      --card: #161a2d;
+      --navy: #1a1f30;
     }
 
-    * {margin: 0; padding: 0; box-sizing: border-box}
     body {
-      font-family: 'Montserrat', sans-serif;
-      background: var(--bg);
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: var(--bg);
       color: #fff;
-      padding: 40px 20px;
     }
 
-    h1, h2 {color: var(--primary)}
-    a {color: var(--primary); text-decoration: none}
-    a:hover {color: var(--hover)}
+    header {
+      background-color: var(--navy);
+      padding: 20px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+    }
 
-    .container {
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+      color: #fff;
+    }
+
+    .back-button {
+      display: inline-block;
+      margin-top: 10px;
+      background: var(--primary);
+      padding: 8px 16px;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    .back-button:hover {
+      background: var(--hover);
+    }
+
+    .section {
+      padding: 40px 20px;
       max-width: 800px;
       margin: auto;
     }
 
-    .profile {
-      text-align: center;
-      margin-bottom: 40px;
+    .section h2 {
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 10px;
+      margin-bottom: 20px;
     }
 
-    .profile img {
-      width: 160px;
-      height: 160px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 4px solid var(--primary);
-      box-shadow: 0 0 12px var(--primary);
-    }
-
-    .profile h1 {
-      margin-top: 12px;
-      font-size: 28px;
-    }
-
-    .tagline {
-      font-size: 14px;
-      color: #ccc;
-    }
-
-    .card {
-      background: var(--card);
-      padding: 24px;
+    .experience, .skills {
+      background-color: #161a2d;
+      padding: 20px;
       border-radius: 12px;
-      margin-bottom: 32px;
+      margin-bottom: 20px;
     }
 
-    .card h2 {
-      margin-bottom: 12px;
-      font-size: 20px;
-    }
-
-    ul.timeline {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    ul.timeline li {
-      margin-bottom: 12px;
+    .progress-bar {
+      background-color: #333;
+      border-radius: 20px;
+      overflow: hidden;
+      margin-top: 8px;
+      height: 16px;
     }
 
     .progress {
-      background: #333;
-      border-radius: 8px;
-      overflow: hidden;
-      margin-top: 8px;
-    }
-
-    .bar {
-      height: 12px;
-      background: var(--primary);
-    }
-
-    .back {
-      display: inline-block;
-      margin-top: 32px;
-      padding: 12px 24px;
-      border-radius: 8px;
-      background: var(--primary);
-      color: #fff;
-      font-weight: 600;
-    }
-
-    .back:hover {
-      background: var(--hover);
+      height: 100%;
+      background-color: var(--primary);
     }
   </style>
 </head>
 <body>
-  <div class="container">
 
-    <!-- Profile -->
-    <section class="profile">
-      <img src="https://raw.githubusercontent.com/sh6wm3/Portofolioo/main/Screenshot_20250708-053511.jpg" alt="Foto Andra" />
-      <h1>Andra Lutfiansyah “Marshal”</h1>
-      <p class="tagline">Head Barista → Web & Forum Developer • Pecinta kopi & clean code enthusiast</p>
-    </section>
+  <header>
+    <h1>Curriculum Vitae - Andra Marshal</h1>
+    <a class="back-button" href="index.html">🔙 Kembali ke Beranda</a>
+  </header>
 
-    <!-- Tentang -->
-    <div class="card">
-      <h2>Tentang Saya</h2>
-      <p>
-        Delapan tahun meracik kopi mengajarkan saya disiplin, konsistensi rasa, dan senyum
-        ramah pada setiap pelanggan. Kini, kombinasi ketelatenan barista dan
-        rasa ingin tahu teknologi saya tuangkan ke dunia pengembangan website serta
-        scripting SA-MP. Target saya sederhana: <em>bikin pengalaman digital
-        seharum aroma kopi terbaik.</em>
-      </p>
-    </div>
-
-    <!-- Pengalaman -->
-    <div class="card">
-      <h2>Pengalaman Kerja</h2>
-      <ul class="timeline">
-        <li><strong>Yukscoffe</strong> — 6 bulan (Barista)</li>
-        <li><strong>Jack Coffe</strong> — 1 tahun (Barista)</li>
-        <li><strong>Kopisoe</strong> — 1 tahun (Head Barista)</li>
-        <li><strong>Giardino Cafe</strong> — 1,3 tahun (Barista)</li>
-        <li><strong>Varuna Cafe</strong> — 8 bulan (Barista)</li>
-        <li><strong>Black Beans Cafe</strong> — 1 tahun (Head Barista)</li>
-      </ul>
-      <p style="margin-top:10px">
-        <strong>Prinsip kerja:</strong> disiplin, jujur, fokus pada SOP,
-        nyaman bekerja dalam tim.
-      </p>
-    </div>
-
-    <!-- Skill Barista -->
-    <div class="card">
-      <h2>Keahlian Barista</h2>
-
-      Latte Art — 80 %
-      <div class="progress"><div class="bar" style="width:80%"></div></div>
-
-      Manual Brewing — 65 %
-      <div class="progress"><div class="bar" style="width:65%"></div></div>
-
-      Team Work — 90 %
-      <div class="progress"><div class="bar" style="width:90%"></div></div>
-    </div>
-
-    <!-- Dunia Kopi -->
-    <div class="card">
-      <h2>Dunia Kopi</h2>
-      <p>
-        Saya gemar bereksperimen meracik menu signature, menjaga stabilitas
-        mesin espresso (setiap opening & closing), serta selalu mengevaluasi
-        rasa sebelum cangkir sampai ke meja tamu.
-      </p>
-    </div>
-
-    <!-- Back to Home -->
-    <a href="index.html" class="back"><i class="fas fa-arrow-left" style="margin-right:6px"></i>Kembali ke Beranda</a>
+  <div class="section">
+    <h2>Tentang Saya</h2>
+    <p>Saya adalah developer passionate yang senang membangun sistem web, scripting SA-MP, dan desain digital. Fokus saya adalah membuat platform interaktif yang user-friendly.</p>
   </div>
+
+  <div class="section">
+    <h2>Pengalaman</h2>
+    <div class="experience">
+      <h3>Developer Forum SA-MP</h3>
+      <p>Membangun sistem forum berbasis HTML + Supabase login system.</p>
+    </div>
+    <div class="experience">
+      <h3>Jasa Scripting SA-MP</h3>
+      <p>Mengerjakan berbagai sistem dynamic, textdraw, dan fitur tambahan komunitas server SA-MP.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Skill</h2>
+    <div class="skills">
+      <strong>Latte Art</strong>
+      <div class="progress-bar"><div class="progress" style="width: 80%"></div></div>
+
+      <strong>Manual Brewing</strong>
+      <div class="progress-bar"><div class="progress" style="width: 70%"></div></div>
+
+      <strong>Public Speaking</strong>
+      <div class="progress-bar"><div class="progress" style="width: 85%"></div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Download CV</h2>
+    <a href="cv.pdf" download style="color: var(--primary);">Klik di sini untuk mengunduh versi PDF</a>
+  </div>
+
 </body>
 </html>
