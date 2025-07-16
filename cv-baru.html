@@ -17,6 +17,7 @@
       --bg: #0d111d;
       --card: #161a2d;
     }
+
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Montserrat', sans-serif;
@@ -24,24 +25,21 @@
       color: #fff;
       padding: 40px 20px;
     }
-    h1, h2 {
-      color: var(--primary);
-    }
-    a {
-      color: var(--primary);
-      text-decoration: none;
-    }
-    a:hover {
-      color: var(--hover);
-    }
+
+    h1, h2 { color: var(--primary); }
+    a { color: var(--primary); text-decoration: none; }
+    a:hover { color: var(--hover); }
+
     .container {
       max-width: 800px;
       margin: auto;
     }
+
     .profile {
       text-align: center;
       margin-bottom: 40px;
     }
+
     .profile img {
       width: 160px;
       height: 160px;
@@ -50,41 +48,50 @@
       border: 4px solid var(--primary);
       box-shadow: 0 0 12px var(--primary);
     }
+
     .profile h1 {
       margin-top: 12px;
       font-size: 28px;
     }
+
     .tagline {
       font-size: 14px;
       color: #ccc;
     }
+
     .card {
       background: var(--card);
       padding: 24px;
       border-radius: 12px;
       margin-bottom: 32px;
     }
+
     .card h2 {
       margin-bottom: 12px;
       font-size: 20px;
     }
+
     ul.timeline {
       list-style: none;
       padding-left: 0;
     }
+
     ul.timeline li {
       margin-bottom: 12px;
     }
+
     .progress {
       background: #333;
       border-radius: 8px;
       overflow: hidden;
       margin: 6px 0 16px;
     }
+
     .bar {
       height: 12px;
       background: var(--primary);
     }
+
     .back {
       display: inline-block;
       margin-top: 32px;
@@ -94,6 +101,7 @@
       color: #fff;
       font-weight: 600;
     }
+
     .back:hover {
       background: var(--hover);
     }
@@ -102,7 +110,7 @@
 <body>
   <div class="container">
 
-    <!-- Profile -->
+    <!-- Foto Profil -->
     <section class="profile">
       <img src="https://raw.githubusercontent.com/sh6wm3/Portofolioo/main/Screenshot_20250708-053511.jpg" alt="Foto Andra">
       <h1>Andra Lutfiansyah “Marshal”</h1>
@@ -121,7 +129,7 @@
       </p>
     </div>
 
-    <!-- Pengalaman Kerja -->
+    <!-- Pengalaman -->
     <div class="card">
       <h2>Pengalaman Kerja (2017 – 2025)</h2>
       <ul class="timeline">
@@ -138,31 +146,31 @@
       </p>
     </div>
 
-    <!-- Keahlian Barista -->
+    <!-- Skill -->
     <div class="card">
       <h2>Keahlian Barista</h2>
 
-      <p>Latte Art — 80%</p>
+      Latte Art — 80%
       <div class="progress"><div class="bar" style="width:80%"></div></div>
 
-      <p>Manual Brewing — 65%</p>
+      Manual Brewing — 65%
       <div class="progress"><div class="bar" style="width:65%"></div></div>
 
-      <p>Team Work — 90%</p>
+      Team Work — 90%
       <div class="progress"><div class="bar" style="width:90%"></div></div>
     </div>
 
-    <!-- Dunia Kopi -->
+    <!-- Tentang Dunia Kopi -->
     <div class="card">
       <h2>Dunia Kopi</h2>
       <p>
         Saya gemar bereksperimen meracik menu signature, menjaga stabilitas
         mesin espresso (setiap opening & closing), serta selalu mengevaluasi
-        rasa sebelum cangkir sampai ke meja tamu. Saya percaya bahwa setiap detail kecil bisa menciptakan pengalaman besar bagi pelanggan.
+        rasa sebelum cangkir sampai ke meja tamu.
       </p>
     </div>
 
-    <!-- Back -->
+    <!-- Tombol Kembali -->
     <a href="index.html" class="back"><i class="fas fa-arrow-left" style="margin-right:6px"></i>Kembali ke Beranda</a>
 
   </div>
